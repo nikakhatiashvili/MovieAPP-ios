@@ -8,13 +8,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
+
     private let button:UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
-        button.setTitle("sign up", for: .normal)
+        button.setTitle("sign in", for: .normal)
         button.layer.cornerRadius = 8
         return button
+    }()
+    
+    private let signUpButton:UIButton = {
+        let  signUpButton = UIButton()
+        signUpButton.backgroundColor = .systemBlue
+        signUpButton.setTitle("Sign Up", for: .normal)
+        signUpButton.layer.cornerRadius = 10
+        return signUpButton
     }()
     
     private let textField:UITextField = {
@@ -47,7 +56,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         self.button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        
+        self.signUpButton.addTarget(self, action: #selector(tapSignUpButton), for: .touchUpInside)
     }
 
     private func setupUI(){
@@ -56,15 +65,23 @@ class ViewController: UIViewController {
         self.view.addSubview(button)
         self.view.addSubview(textField)
         self.view.addSubview(passTextField)
+        self.view.addSubview(signUpButton)
         self.textField.translatesAutoresizingMaskIntoConstraints = false
         self.passTextField.translatesAutoresizingMaskIntoConstraints = false
         self.button.translatesAutoresizingMaskIntoConstraints = false
+        self.signUpButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             button.widthAnchor.constraint(equalToConstant: 200),
             button.heightAnchor.constraint(equalToConstant: 40),
+            
+            signUpButton.topAnchor.constraint(equalTo: button.bottomAnchor,constant: 20),
+            signUpButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+
+            signUpButton.heightAnchor.constraint(equalToConstant: 40),
+            signUpButton.widthAnchor.constraint(equalToConstant: 200),
             
             textField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
             textField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
@@ -74,12 +91,14 @@ class ViewController: UIViewController {
             passTextField.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
             passTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
             passTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30),
-
-
         ])
     }
     
     @objc func didTapButton(){
+
+    }
+    
+    @objc func tapSignUpButton(){
         print("button pressed")
         let vc = SignUpViewController()
         self.navigationController?.pushViewController(vc, animated: true)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6028CF2A6593420061E008 /* SignUpViewModel.swift */; };
+		CE6028D22A6593610061E008 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6028D12A6593610061E008 /* ValidationResult.swift */; };
 		CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E94A2A64096000811F24 /* AppDelegate.swift */; };
 		CE68E94D2A64096000811F24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E94C2A64096000811F24 /* SceneDelegate.swift */; };
 		CE68E94F2A64096000811F24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E94E2A64096000811F24 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE6028CF2A6593420061E008 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		CE6028D12A6593610061E008 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		CE68E9472A64096000811F24 /* Project2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE68E94A2A64096000811F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE68E94C2A64096000811F24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				CE68E97D2A6581E300811F24 /* signIn */,
 				CE68E97A2A64099A00811F24 /* Supporting */,
 				CE68E9582A64096100811F24 /* Info.plist */,
+				CE6028D12A6593610061E008 /* ValidationResult.swift */,
 			);
 			path = Project2;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 		CE68E97E2A6581EF00811F24 /* signUp */ = {
 			isa = PBXGroup;
 			children = (
+				CE6028CF2A6593420061E008 /* SignUpViewModel.swift */,
 				CE68E97B2A64127C00811F24 /* SignUpViewController.swift */,
 			);
 			path = signUp;
@@ -286,7 +292,9 @@
 			files = (
 				CE68E94F2A64096000811F24 /* ViewController.swift in Sources */,
 				CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */,
+				CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */,
 				CE68E97C2A64127C00811F24 /* SignUpViewController.swift in Sources */,
+				CE6028D22A6593610061E008 /* ValidationResult.swift in Sources */,
 				CE68E94D2A64096000811F24 /* SceneDelegate.swift in Sources */,
 				CE68E9802A658ABE00811F24 /* CustomTextField.swift in Sources */,
 			);
