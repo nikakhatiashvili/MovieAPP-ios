@@ -8,14 +8,15 @@
 import FirebaseAuth
 import Foundation
 
-class SignUpRepositoryImpl:SignUpRepository{
-    func signUp(email: String, pass: String) {
+class SignUpRepositoryImpl: SignUpRepository {
+    func signUp(email: String, pass: String, completion: @escaping (Result<String>) -> Void) {
 
         Auth.auth().createUser(withEmail: email, password: pass) { authResult, error in
             if let error = error {
-                print("Sign-up error: \(error.localizedDescription)")
+                completion(.error(nil, error.localizedDescription))
             } else {
-                print("Sign-up successful. User ID: \(authResult?.user.uid ?? "")")
+                let userID = authResult?.user.uid ?? ""
+                completion(.success(userID))
             }
         }
     }

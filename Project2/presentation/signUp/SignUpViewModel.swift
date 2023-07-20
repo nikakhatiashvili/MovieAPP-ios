@@ -40,7 +40,17 @@ class SignUpViewModel: NSObject {
             }
             return
         }
-        signUpUseCase.signUp(email: email, password: password)
+        signUpUseCase.signUp(email: email, password: password) { [self] result in
+                    switch result {
+                    case .success(_):
+                        NotificationCenter.default.post(name: Notification.Name("SignUpSuccessNotification"), object: nil)
+                        self.showAlert(title: "successfully signed up", message: "sign up was a success")
+                    case .error(_, let message):
+                        self.showAlert(title: "Sign-up error:", message: "\(String(describing: message))")
+                    case .exception(let error):
+                        print("Exception: \(error)")
+                    }
+                }
     }
     
     private func performSignUp() {

@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Resolver
 
 class ViewController: UIViewController {
 
+    @LazyInjected private var signInViewModel: SignInViewModel
 
     private let button:UIButton = {
         let button = UIButton()
@@ -57,6 +59,7 @@ class ViewController: UIViewController {
         self.setupUI()
         self.button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(tapSignUpButton), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSignUpSuccess), name: Notification.Name("SignUpSuccessNotification"), object: nil)
     }
 
     private func setupUI(){
@@ -95,13 +98,23 @@ class ViewController: UIViewController {
     }
     
     @objc func didTapButton(){
-
+        signInViewModel.email = textField.text ?? ""
+        signInViewModel.password = passTextField.text ?? ""
+        signInViewModel.signIn()
     }
     
     @objc func tapSignUpButton(){
         print("button pressed")
         let vc = SignUpViewController()
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func handleSignUpSuccess() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
