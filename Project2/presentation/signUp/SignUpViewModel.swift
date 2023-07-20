@@ -7,15 +7,22 @@
 
 import UIKit
 import Foundation
-
+import Resolver
 
 @objcMembers
 class SignUpViewModel: NSObject {
+    
+    private let signUpUseCase:SignUpUseCase
+    
+    init(signUpUseCase: SignUpUseCase = Resolver.resolve()) {
+        self.signUpUseCase = signUpUseCase
+        super.init()
+    }
+    
     dynamic var email: String = ""
     dynamic var password: String = ""
     dynamic var repeatPass:String = ""
     dynamic var username:String = ""
-
     func signUp() {
         let emailValidationResult = isValidEmail(email)
         let passwordValidationResult = isValidPassword(password,repeatPass: repeatPass)
@@ -33,7 +40,7 @@ class SignUpViewModel: NSObject {
             }
             return
         }
-        performSignUp()
+        signUpUseCase.signUp(email: email, password: password)
     }
     
     private func performSignUp() {
@@ -41,17 +48,14 @@ class SignUpViewModel: NSObject {
     }
     
     func isValidPassword(_ password: String, repeatPass: String) -> ValidationResult {
-      // Check if password is empty
       guard !password.isEmpty else {
         return ValidationResult(isValid: false, errorMessage: "Password is required.")
       }
 
-      // Check if passwords match
       guard password == repeatPass else {
         return ValidationResult(isValid: false, errorMessage: "Passwords don't match")
       }
 
-      // Check if password is at least 8 characters long
       guard password.count >= 8 else {
         return ValidationResult(isValid: false, errorMessage: "Password must be at least 8 characters long")
       }
@@ -96,7 +100,7 @@ class SignUpViewModel: NSObject {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         
-        // Get the topmost view controller to present the alert
+
         if let topViewController = UIApplication.shared.windows.first?.rootViewController {
             topViewController.present(alertController, animated: true, completion: nil)
         }

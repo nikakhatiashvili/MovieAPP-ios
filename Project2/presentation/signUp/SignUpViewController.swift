@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Resolver
 
 class SignUpViewController: UIViewController {
     
-    let signUpViewModel = SignUpViewModel()
+    @LazyInjected private var signUpViewModel: SignUpViewModel
     
     private let emailTextField:UITextField = {
         let emailTextField = UITextField()
