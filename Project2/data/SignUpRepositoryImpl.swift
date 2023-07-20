@@ -13,10 +13,8 @@ class SignUpRepositoryImpl:SignUpRepository{
 
         Auth.auth().createUser(withEmail: email, password: pass) { authResult, error in
             if let error = error {
-                // Handle the sign-up error
                 print("Sign-up error: \(error.localizedDescription)")
             } else {
-                // Sign-up successful
                 print("Sign-up successful. User ID: \(authResult?.user.uid ?? "")")
             }
         }

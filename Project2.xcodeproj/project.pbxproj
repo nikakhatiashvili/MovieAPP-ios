@@ -19,6 +19,14 @@
 		CE68E96E2A64096200811F24 /* Project2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E96D2A64096200811F24 /* Project2UITestsLaunchTests.swift */; };
 		CE68E97C2A64127C00811F24 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E97B2A64127C00811F24 /* SignUpViewController.swift */; };
 		CE68E9802A658ABE00811F24 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E97F2A658ABE00811F24 /* CustomTextField.swift */; };
+		CE85CE9F2A692768003FCD98 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE85CE9E2A692768003FCD98 /* GoogleService-Info.plist */; };
+		CECAE8602A692D340072EF80 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CECAE85F2A692D340072EF80 /* FirebaseAuth */; };
+		CECAE8622A692D340072EF80 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = CECAE8612A692D340072EF80 /* FirebaseAuthCombine-Community */; };
+		CECAE8672A69463A0072EF80 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = CECAE8662A69463A0072EF80 /* Resolver */; };
+		CECAE86E2A6947920072EF80 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE86D2A6947920072EF80 /* AppDelegate+Injection.swift */; };
+		CECAE8702A6969B90072EF80 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE86F2A6969B90072EF80 /* SignUpUseCase.swift */; };
+		CECAE8722A6972460072EF80 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8712A6972460072EF80 /* SignUpRepository.swift */; };
+		CECAE8742A6973050072EF80 /* SignUpRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8732A6973050072EF80 /* SignUpRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +63,11 @@
 		CE68E96D2A64096200811F24 /* Project2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CE68E97B2A64127C00811F24 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CE68E97F2A658ABE00811F24 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		CE85CE9E2A692768003FCD98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CECAE86D2A6947920072EF80 /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
+		CECAE86F2A6969B90072EF80 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
+		CECAE8712A6972460072EF80 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
+		CECAE8732A6973050072EF80 /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECAE8672A69463A0072EF80 /* Resolver in Frameworks */,
+				CECAE8602A692D340072EF80 /* FirebaseAuth in Frameworks */,
+				CECAE8622A692D340072EF80 /* FirebaseAuthCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,10 +121,13 @@
 		CE68E9492A64096000811F24 /* Project2 */ = {
 			isa = PBXGroup;
 			children = (
-				CE68E97E2A6581EF00811F24 /* signUp */,
-				CE68E97D2A6581E300811F24 /* signIn */,
+				CECAE86C2A6947470072EF80 /* data */,
+				CECAE86A2A6947370072EF80 /* domain */,
+				CECAE8692A69472B0072EF80 /* presentation */,
+				CECAE8682A6947240072EF80 /* di */,
 				CE68E97A2A64099A00811F24 /* Supporting */,
 				CE68E9582A64096100811F24 /* Info.plist */,
+				CE85CE9E2A692768003FCD98 /* GoogleService-Info.plist */,
 				CE6028D12A6593610061E008 /* ValidationResult.swift */,
 			);
 			path = Project2;
@@ -160,6 +179,40 @@
 			path = signUp;
 			sourceTree = "<group>";
 		};
+		CECAE8682A6947240072EF80 /* di */ = {
+			isa = PBXGroup;
+			children = (
+				CECAE86D2A6947920072EF80 /* AppDelegate+Injection.swift */,
+			);
+			path = di;
+			sourceTree = "<group>";
+		};
+		CECAE8692A69472B0072EF80 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CE68E97D2A6581E300811F24 /* signIn */,
+				CE68E97E2A6581EF00811F24 /* signUp */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		CECAE86A2A6947370072EF80 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				CECAE86F2A6969B90072EF80 /* SignUpUseCase.swift */,
+				CECAE8712A6972460072EF80 /* SignUpRepository.swift */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		CECAE86C2A6947470072EF80 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				CECAE8732A6973050072EF80 /* SignUpRepositoryImpl.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +229,11 @@
 			dependencies = (
 			);
 			name = Project2;
+			packageProductDependencies = (
+				CECAE85F2A692D340072EF80 /* FirebaseAuth */,
+				CECAE8612A692D340072EF80 /* FirebaseAuthCombine-Community */,
+				CECAE8662A69463A0072EF80 /* Resolver */,
+			);
 			productName = Project2;
 			productReference = CE68E9472A64096000811F24 /* Project2.app */;
 			productType = "com.apple.product-type.application";
@@ -248,6 +306,10 @@
 				Base,
 			);
 			mainGroup = CE68E93E2A64096000811F24;
+			packageReferences = (
+				CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				CECAE8652A69463A0072EF80 /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = CE68E9482A64096000811F24 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,6 +328,7 @@
 			files = (
 				CE68E9572A64096100811F24 /* LaunchScreen.storyboard in Resources */,
 				CE68E9542A64096100811F24 /* Assets.xcassets in Resources */,
+				CE85CE9F2A692768003FCD98 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,13 +353,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECAE86E2A6947920072EF80 /* AppDelegate+Injection.swift in Sources */,
+				CECAE8722A6972460072EF80 /* SignUpRepository.swift in Sources */,
 				CE68E94F2A64096000811F24 /* ViewController.swift in Sources */,
 				CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */,
 				CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */,
 				CE68E97C2A64127C00811F24 /* SignUpViewController.swift in Sources */,
+				CECAE8742A6973050072EF80 /* SignUpRepositoryImpl.swift in Sources */,
 				CE6028D22A6593610061E008 /* ValidationResult.swift in Sources */,
 				CE68E94D2A64096000811F24 /* SceneDelegate.swift in Sources */,
 				CE68E9802A658ABE00811F24 /* CustomTextField.swift in Sources */,
+				CECAE8702A6969B90072EF80 /* SignUpUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +697,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		CECAE8652A69463A0072EF80 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CECAE85F2A692D340072EF80 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CECAE8612A692D340072EF80 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		CECAE8662A69463A0072EF80 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CECAE8652A69463A0072EF80 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE68E93F2A64096000811F24 /* Project object */;
 }
