@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE48FB282A6AC161005AECF4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB272A6AC161005AECF4 /* HomeViewController.swift */; };
 		CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6028CF2A6593420061E008 /* SignUpViewModel.swift */; };
 		CE6028D22A6593610061E008 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6028D12A6593610061E008 /* ValidationResult.swift */; };
 		CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E94A2A64096000811F24 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE48FB272A6AC161005AECF4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE6028CF2A6593420061E008 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		CE6028D12A6593610061E008 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		CE68E9472A64096000811F24 /* Project2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 			children = (
 				CE68E97D2A6581E300811F24 /* signIn */,
 				CE68E97E2A6581EF00811F24 /* signUp */,
+				CE48FB272A6AC161005AECF4 /* HomeViewController.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				CECAE86E2A6947920072EF80 /* AppDelegate+Injection.swift in Sources */,
 				CECAE8722A6972460072EF80 /* SignUpRepository.swift in Sources */,
 				CE68E94F2A64096000811F24 /* ViewController.swift in Sources */,
+				CE48FB282A6AC161005AECF4 /* HomeViewController.swift in Sources */,
 				CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */,
 				CECAE8782A6996870072EF80 /* SignInViewModel.swift in Sources */,
 				CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */,

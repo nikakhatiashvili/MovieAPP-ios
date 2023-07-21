@@ -60,6 +60,7 @@ class ViewController: UIViewController {
         self.button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(tapSignUpButton), for: .touchUpInside)
         NotificationCenter.default.addObserver(self, selector: #selector(handleSignUpSuccess), name: Notification.Name("SignUpSuccessNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSignInSuccess), name: Notification.Name("SignInSuccessNotification"), object:nil)
     }
 
     private func setupUI(){
@@ -110,7 +111,18 @@ class ViewController: UIViewController {
     }
     
     @objc func handleSignUpSuccess() {
+        print("handle Sign up success")
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func handleSignInSuccess() {
+        print("success happend")
+        let newScreenVC = HomeViewController()
+
+        let navigationController = UINavigationController(rootViewController: newScreenVC)
+        
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+
     }
     
     deinit {

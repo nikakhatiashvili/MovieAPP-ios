@@ -18,6 +18,7 @@ class SignInViewModel: NSObject {
         self.signInUseCase = signInUseCase
         super.init()
     }
+    
     dynamic var email: String = ""
     dynamic var password: String = ""
     
@@ -36,7 +37,7 @@ class SignInViewModel: NSObject {
         signInUseCase.signIn(email: email, password: password){ [self] result in
             switch result {
             case .success(_):
-                self.showAlert(title: "successfully signed in", message: "sign in was a success")
+                NotificationCenter.default.post(name: Notification.Name("SignInSuccessNotification"), object: nil)
             case .error(_, let message):
                 self.showAlert(title: "Sign-up error:", message: "\(String(describing: message))")
             case .exception(let error):
