@@ -10,23 +10,34 @@ import Alamofire
 
 class HomeViewModel:ObservableObject {
     
-    func getPopularMovies(completion: @escaping ([String: Any]?, Error?) -> Void) {
+    @Published var movies: [Movie] = []
+    
+    func getPopularMovies(completion: @escaping (Result<MovieResult>) -> Void) {
         let apiKey = "7f39984135c9621c058c979457e46b42"
         let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)"
-        
-        AF.request(urlString).responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                if let json = value as? [String: Any] {
-                    print(json)
-                    completion(json, nil)
-                } else {
-                    completion(nil, NSError(domain: "Parsing Error", code: 0, userInfo: nil))
-                }
-            case .failure(let error):
-                completion(nil, error)
-            }
-        }
-        
-    }
+        DispatchQueue.global(qos: .background).async {
+             AF.request(urlString).responseJSON { response in
+                 switch response.result {
+                 case .success(let value):
+                     do {
+                         let jsonData = try JSONSerialization.data(withJSONObject: value)
+                         let decoder = JSONDecoder()
+                         let result = try decoder.decode(MovieResult.self, from: jsonData)
+                         self.movies = result.results
+                         DispatchQueue.main.async {
+                             completion(.success(result))
+                         }
+                     } catch {
+                         DispatchQueue.main.async {
+                             completion(.error(0,error.localizedDescription))
+                         }
+                     }
+                 case .failure(let error):
+                     DispatchQueue.main.async {
+                         completion(.exception(error))
+                     }
+                 }
+             }
+         }
+     }
 }

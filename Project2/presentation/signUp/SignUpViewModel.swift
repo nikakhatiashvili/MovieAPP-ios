@@ -18,10 +18,10 @@ class SignUpViewModel {
         self.signUpUseCase = signUpUseCase
     }
     
-    var email: String = ""
-    var password: String = ""
-    var repeatPass:String = ""
-    var username:String = ""
+     var email: String = ""
+     var password: String = ""
+     var repeatPass:String = ""
+     var username:String = ""
     
     func signUp() {
         let emailValidationResult = isValidEmail(email)

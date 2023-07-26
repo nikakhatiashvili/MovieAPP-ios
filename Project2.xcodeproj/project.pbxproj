@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0515922A71432000680219 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0515912A71432000680219 /* Movie.swift */; };
+		CE0515942A71434400680219 /* OriginalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0515932A71434400680219 /* OriginalLanguage.swift */; };
+		CE388ECC2A71496C00EE56B3 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE388ECB2A71496C00EE56B3 /* MovieResult.swift */; };
+		CE388ECE2A71503A00EE56B3 /* MovieItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE388ECD2A71503A00EE56B3 /* MovieItem.swift */; };
+		CE388ED12A71604A00EE56B3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CE388ED02A71604A00EE56B3 /* SDWebImage */; };
 		CE48FB282A6AC161005AECF4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB272A6AC161005AECF4 /* HomeViewController.swift */; };
 		CE48FB682A6FE648005AECF4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE48FB672A6FE648005AECF4 /* Alamofire */; };
 		CE48FB6A2A6FE78A005AECF4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */; };
@@ -57,6 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE0515912A71432000680219 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		CE0515932A71434400680219 /* OriginalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalLanguage.swift; sourceTree = "<group>"; };
+		CE388ECB2A71496C00EE56B3 /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
+		CE388ECD2A71503A00EE56B3 /* MovieItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItem.swift; sourceTree = "<group>"; };
 		CE48FB272A6AC161005AECF4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthMediator.swift; sourceTree = "<group>"; };
@@ -98,6 +107,7 @@
 				CE48FB682A6FE648005AECF4 /* Alamofire in Frameworks */,
 				CECAE8602A692D340072EF80 /* FirebaseAuth in Frameworks */,
 				CECAE8622A692D340072EF80 /* FirebaseAuthCombine-Community in Frameworks */,
+				CE388ED12A71604A00EE56B3 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,11 +128,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE0515902A71430B00680219 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				CE0515912A71432000680219 /* Movie.swift */,
+				CE0515932A71434400680219 /* OriginalLanguage.swift */,
+				CE388ECB2A71496C00EE56B3 /* MovieResult.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		CE48FB652A6FDB13005AECF4 /* home */ = {
 			isa = PBXGroup;
 			children = (
 				CE48FB272A6AC161005AECF4 /* HomeViewController.swift */,
 				CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */,
+				CE388ECD2A71503A00EE56B3 /* MovieItem.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -230,6 +251,7 @@
 		CECAE86A2A6947370072EF80 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				CE0515902A71430B00680219 /* home */,
 				CECAE8812A6997C60072EF80 /* common */,
 				CECAE8802A6997B20072EF80 /* signUp */,
 				CECAE87F2A6997AC0072EF80 /* signIn */,
@@ -295,6 +317,7 @@
 				CECAE8612A692D340072EF80 /* FirebaseAuthCombine-Community */,
 				CECAE8662A69463A0072EF80 /* Resolver */,
 				CE48FB672A6FE648005AECF4 /* Alamofire */,
+				CE388ED02A71604A00EE56B3 /* SDWebImage */,
 			);
 			productName = Project2;
 			productReference = CE68E9472A64096000811F24 /* Project2.app */;
@@ -372,6 +395,7 @@
 				CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CECAE8652A69463A0072EF80 /* XCRemoteSwiftPackageReference "Resolver" */,
 				CE48FB662A6FE648005AECF4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CE388ECF2A71604A00EE56B3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = CE68E9482A64096000811F24 /* Products */;
 			projectDirPath = "";
@@ -421,15 +445,19 @@
 				CECAE8722A6972460072EF80 /* SignUpRepository.swift in Sources */,
 				CE68E94F2A64096000811F24 /* ViewController.swift in Sources */,
 				CE48FB282A6AC161005AECF4 /* HomeViewController.swift in Sources */,
+				CE388ECC2A71496C00EE56B3 /* MovieResult.swift in Sources */,
 				CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */,
 				CECAE8782A6996870072EF80 /* SignInViewModel.swift in Sources */,
 				CE48FB6C2A6FF175005AECF4 /* FirebaseAuthMediator.swift in Sources */,
+				CE388ECE2A71503A00EE56B3 /* MovieItem.swift in Sources */,
+				CE0515942A71434400680219 /* OriginalLanguage.swift in Sources */,
 				CE48FB6E2A6FF1B8005AECF4 /* AuthenticationMediator.swift in Sources */,
 				CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */,
 				CE68E97C2A64127C00811F24 /* SignUpViewController.swift in Sources */,
 				CECAE8762A6980350072EF80 /* Result.swift in Sources */,
 				CECAE8742A6973050072EF80 /* SignUpRepositoryImpl.swift in Sources */,
 				CECAE87A2A6996E80072EF80 /* SignInUseCase.swift in Sources */,
+				CE0515922A71432000680219 /* Movie.swift in Sources */,
 				CE6028D22A6593610061E008 /* ValidationResult.swift in Sources */,
 				CE68E94D2A64096000811F24 /* SceneDelegate.swift in Sources */,
 				CE68E9802A658ABE00811F24 /* CustomTextField.swift in Sources */,
@@ -771,6 +799,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CE388ECF2A71604A00EE56B3 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		CE48FB662A6FE648005AECF4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -798,6 +834,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CE388ED02A71604A00EE56B3 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE388ECF2A71604A00EE56B3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		CE48FB672A6FE648005AECF4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE48FB662A6FE648005AECF4 /* XCRemoteSwiftPackageReference "Alamofire" */;
