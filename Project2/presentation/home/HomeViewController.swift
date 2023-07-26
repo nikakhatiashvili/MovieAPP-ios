@@ -7,11 +7,14 @@
 
 import Foundation
 import FirebaseAuth
+import Resolver
 import UIKit
 
 class HomeViewController:UIViewController{
     
-    private let textview:UILabel = {
+    @LazyInjected private var viewModel: HomeViewModel
+    
+    private let textview : UILabel = {
         let textview = UILabel()
         textview.text = ""
         textview.textColor = .systemRed
@@ -21,6 +24,7 @@ class HomeViewController:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        viewModel.getPopularMovies(completion: {_,_ in})
         self.view.backgroundColor = .white
     }
     
@@ -29,15 +33,10 @@ class HomeViewController:UIViewController{
         textview.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             textview.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            
             textview.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-            
         ])
-        
         textview.text = "welcome: " + (Auth.auth().currentUser?.email ?? "")
     }
-    
-    
     
 }
 

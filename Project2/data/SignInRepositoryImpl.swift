@@ -6,19 +6,14 @@
 //
 
 import Foundation
-import FirebaseAuth
+import Resolver
 
 class SignInRepositoryImpl: SignInRepository{
+    
+    @Injected private var authMediator:AuthenticationMediator
+    
     func signIn(email: String, pass: String, completion: @escaping (Result<String>) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: pass)
-        { authResult, error in
-            if let error = error {
-                completion(.error(nil, error.localizedDescription))
-            } else {
-                let userID = authResult?.user.email ?? ""
-                completion(.success(userID))
-            }
-        }
+        authMediator.signIn(email: email, pass: pass, completion: completion)
     }
 
 }

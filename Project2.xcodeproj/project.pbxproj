@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CE48FB282A6AC161005AECF4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB272A6AC161005AECF4 /* HomeViewController.swift */; };
+		CE48FB682A6FE648005AECF4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE48FB672A6FE648005AECF4 /* Alamofire */; };
+		CE48FB6A2A6FE78A005AECF4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */; };
+		CE48FB6C2A6FF175005AECF4 /* FirebaseAuthMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */; };
+		CE48FB6E2A6FF1B8005AECF4 /* AuthenticationMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */; };
 		CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6028CF2A6593420061E008 /* SignUpViewModel.swift */; };
 		CE6028D22A6593610061E008 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6028D12A6593610061E008 /* ValidationResult.swift */; };
 		CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E94A2A64096000811F24 /* AppDelegate.swift */; };
@@ -54,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		CE48FB272A6AC161005AECF4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthMediator.swift; sourceTree = "<group>"; };
+		CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMediator.swift; sourceTree = "<group>"; };
 		CE6028CF2A6593420061E008 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		CE6028D12A6593610061E008 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		CE68E9472A64096000811F24 /* Project2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CECAE8672A69463A0072EF80 /* Resolver in Frameworks */,
+				CE48FB682A6FE648005AECF4 /* Alamofire in Frameworks */,
 				CECAE8602A692D340072EF80 /* FirebaseAuth in Frameworks */,
 				CECAE8622A692D340072EF80 /* FirebaseAuthCombine-Community in Frameworks */,
 			);
@@ -110,6 +118,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE48FB652A6FDB13005AECF4 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				CE48FB272A6AC161005AECF4 /* HomeViewController.swift */,
+				CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		CE68E93E2A64096000811F24 = {
 			isa = PBXGroup;
 			children = (
@@ -203,9 +220,9 @@
 		CECAE8692A69472B0072EF80 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CE48FB652A6FDB13005AECF4 /* home */,
 				CE68E97D2A6581E300811F24 /* signIn */,
 				CE68E97E2A6581EF00811F24 /* signUp */,
-				CE48FB272A6AC161005AECF4 /* HomeViewController.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -225,6 +242,7 @@
 			children = (
 				CECAE8732A6973050072EF80 /* SignUpRepositoryImpl.swift */,
 				CECAE8822A6997E80072EF80 /* SignInRepositoryImpl.swift */,
+				CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -234,6 +252,7 @@
 			children = (
 				CECAE87B2A69974B0072EF80 /* SignInRepository.swift */,
 				CECAE8792A6996E80072EF80 /* SignInUseCase.swift */,
+				CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */,
 			);
 			path = signIn;
 			sourceTree = "<group>";
@@ -275,6 +294,7 @@
 				CECAE85F2A692D340072EF80 /* FirebaseAuth */,
 				CECAE8612A692D340072EF80 /* FirebaseAuthCombine-Community */,
 				CECAE8662A69463A0072EF80 /* Resolver */,
+				CE48FB672A6FE648005AECF4 /* Alamofire */,
 			);
 			productName = Project2;
 			productReference = CE68E9472A64096000811F24 /* Project2.app */;
@@ -351,6 +371,7 @@
 			packageReferences = (
 				CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				CECAE8652A69463A0072EF80 /* XCRemoteSwiftPackageReference "Resolver" */,
+				CE48FB662A6FE648005AECF4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = CE68E9482A64096000811F24 /* Products */;
 			projectDirPath = "";
@@ -396,11 +417,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CECAE86E2A6947920072EF80 /* AppDelegate+Injection.swift in Sources */,
+				CE48FB6A2A6FE78A005AECF4 /* HomeViewModel.swift in Sources */,
 				CECAE8722A6972460072EF80 /* SignUpRepository.swift in Sources */,
 				CE68E94F2A64096000811F24 /* ViewController.swift in Sources */,
 				CE48FB282A6AC161005AECF4 /* HomeViewController.swift in Sources */,
 				CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */,
 				CECAE8782A6996870072EF80 /* SignInViewModel.swift in Sources */,
+				CE48FB6C2A6FF175005AECF4 /* FirebaseAuthMediator.swift in Sources */,
+				CE48FB6E2A6FF1B8005AECF4 /* AuthenticationMediator.swift in Sources */,
 				CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */,
 				CE68E97C2A64127C00811F24 /* SignUpViewController.swift in Sources */,
 				CECAE8762A6980350072EF80 /* Result.swift in Sources */,
@@ -747,6 +771,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CE48FB662A6FE648005AECF4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -766,6 +798,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CE48FB672A6FE648005AECF4 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE48FB662A6FE648005AECF4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		CECAE85F2A692D340072EF80 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

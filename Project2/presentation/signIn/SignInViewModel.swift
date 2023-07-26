@@ -8,23 +8,20 @@ import UIKit
 import Foundation
 import Resolver
 
+class SignInViewModel {
 
-
-@objcMembers
-class SignInViewModel: NSObject {
+    
     private let signInUseCase:SignInUseCase
     
     init(signInUseCase: SignInUseCase = Resolver.resolve()) {
         self.signInUseCase = signInUseCase
-        super.init()
     }
     
-    dynamic var email: String = ""
-    dynamic var password: String = ""
+     var email: String = ""
+     var password: String = ""
     
     func signIn(){
         let emailValidationResult = isValidEmail(email)
-        print("inside viewmodel")
         if !emailValidationResult.isValid {
             if let errorMessage = emailValidationResult.errorMessage {
                 showAlert(title: "Invalid Email", message: errorMessage)
@@ -53,7 +50,8 @@ class SignInViewModel: NSObject {
         }
         
         guard isValidEmailPattern(email) else {
-            return ValidationResult(isValid: false, errorMessage: "Please enter a valid email address.")
+            return ValidationResult(isValid: false,
+                                    errorMessage: "Please enter a valid email address.")
         }
         
         return ValidationResult(isValid: true, errorMessage: nil)
@@ -61,20 +59,18 @@ class SignInViewModel: NSObject {
     
     func isValidEmailPattern(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
+    
     
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         
-
         if let topViewController = UIApplication.shared.windows.first?.rootViewController {
             topViewController.present(alertController, animated: true, completion: nil)
         }
     }
-    
 }

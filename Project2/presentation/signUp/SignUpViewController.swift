@@ -12,7 +12,7 @@ class SignUpViewController: UIViewController {
     
     @LazyInjected private var signUpViewModel: SignUpViewModel
     
-    private let emailTextField:UITextField = {
+    private let emailTextField : UITextField = {
         let emailTextField = UITextField()
         emailTextField.layer.cornerRadius = 2
         emailTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 22))
@@ -26,7 +26,7 @@ class SignUpViewController: UIViewController {
        return emailTextField
     }()
     
-    private let usernameTextField:UITextField = {
+    private let usernameTextField : UITextField = {
         let usernameTextField = UITextField()
         usernameTextField.layer.cornerRadius = 2
         usernameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 22))
@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
        return usernameTextField
     }()
     
-    private let passTextField:UITextField = {
+    private let passTextField : UITextField = {
         let passTextField = UITextField()
         passTextField.layer.cornerRadius = 2
         let attributes: [NSAttributedString.Key: Any] = [
@@ -51,7 +51,7 @@ class SignUpViewController: UIViewController {
        return passTextField
     }()
     
-    private let repeatPassTextField:UITextField = {
+    private let repeatPassTextField : UITextField = {
         let repeatPassTextField = UITextField()
         repeatPassTextField.layer.cornerRadius = 2
         let attributes: [NSAttributedString.Key: Any] = [
@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController {
        return repeatPassTextField
     }()
     
-    private let signUpButton:UIButton = {
+    private let signUpButton : UIButton = {
         let signUpButton = UIButton()
         signUpButton.backgroundColor = .systemBlue
         signUpButton.setTitle("sign Up", for: .normal)
@@ -78,18 +78,17 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupUi(){
-        self.view.addSubview(emailTextField)
-        self.view.addSubview(usernameTextField)
-        self.view.addSubview(passTextField)
-        self.view.addSubview(repeatPassTextField)
-        self.view.addSubview(signUpButton)
+        self.addViews()
+        self.setLayout()
         
         self.signUpButton.translatesAutoresizingMaskIntoConstraints = false
         self.emailTextField.translatesAutoresizingMaskIntoConstraints = false
         self.usernameTextField.translatesAutoresizingMaskIntoConstraints = false
         self.passTextField.translatesAutoresizingMaskIntoConstraints = false
         self.repeatPassTextField.translatesAutoresizingMaskIntoConstraints = false
-        
+    }
+    
+    private func setLayout(){
         NSLayoutConstraint.activate([
             emailTextField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 200),
             emailTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
@@ -116,6 +115,13 @@ class SignUpViewController: UIViewController {
         ])
     }
     
+    @objc func addViews(){
+        self.view.addSubview(emailTextField)
+        self.view.addSubview(usernameTextField)
+        self.view.addSubview(passTextField)
+        self.view.addSubview(repeatPassTextField)
+        self.view.addSubview(signUpButton)
+    }
     
     @objc func tapSignUpButton(){
         print("sign up button pressed")

@@ -10,7 +10,7 @@ import Resolver
 
 class SignUpUseCase {
     
-    private let signUpRepository: SignUpRepository
+    @Injected private var signUpRepository: SignUpRepository
 
     init(signUpRepository: SignUpRepository = Resolver.resolve()) {
         self.signUpRepository = signUpRepository

@@ -9,7 +9,7 @@ import Foundation
 import Resolver
 class SignInUseCase{
     
-    private let signInRepository: SignInRepository
+    @Injected private var signInRepository: SignInRepository
 
     init(signInRepository: SignInRepository = Resolver.resolve()) {
         self.signInRepository = signInRepository

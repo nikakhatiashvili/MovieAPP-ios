@@ -25,7 +25,12 @@ extension Resolver: ResolverRegistering {
         
         Resolver.register{SignInUseCase(signInRepository: Resolver.resolve())}
         
-        Resolver.register{SignInRepositoryImpl()}.implements(SignInRepository.self) 
+        Resolver.register{SignInRepositoryImpl()}.implements(SignInRepository.self)
+        
+        
+        Resolver.register{FirebaseAuthMediator()}.implements(AuthenticationMediator.self)
+        
+        Resolver.register{HomeViewModel()}.scope(.graph)
     }
 }
 
