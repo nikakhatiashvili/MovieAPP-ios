@@ -31,6 +31,12 @@ extension Resolver: ResolverRegistering {
         Resolver.register{FirebaseAuthMediator()}.implements(AuthenticationMediator.self)
         
         Resolver.register{HomeViewModel()}.scope(.graph)
+        
+        Resolver.register{MovieUseCase()}.scope(.graph)
+//        Resolver.register{MovieUseCase(movieRepository:Resolver.resolve())}
+        Resolver.register{MovieRepositoryImpl()}.implements(MovieRepository.self)
+        Resolver.register{NetworkMediator()}.implements(MovieMediator.self)
+        
     }
 }
 

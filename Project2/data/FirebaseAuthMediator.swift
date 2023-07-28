@@ -14,7 +14,7 @@ class FirebaseAuthMediator: AuthenticationMediator {
         Auth.auth().signIn(withEmail: email, password: pass)
         { authResult, error in
             if let error = error {
-                completion(.error(nil, error.localizedDescription))
+                completion(.error(nil, error))
             } else {
                 let userID = authResult?.user.email ?? ""
                 completion(.success(userID))
@@ -26,7 +26,7 @@ class FirebaseAuthMediator: AuthenticationMediator {
         Auth.auth().createUser(withEmail: email, password: pass){
             authResult, error in
             if let error = error {
-                completion(.error(nil, error.localizedDescription))
+                completion(.error(nil, error))
             }else{
                 let userID = authResult?.user.email ?? ""
                 completion(.success(userID))

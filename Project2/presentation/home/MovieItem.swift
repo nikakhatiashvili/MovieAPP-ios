@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 class MovieItem: UITableViewCell {
-    // Create an image view to display the movie poster image
+    
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -18,31 +18,56 @@ class MovieItem: UITableViewCell {
         return imageView
     }()
 
-    // Set up the constraints for the image view
+    
+    private let titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        return titleLabel
+    }()
+    
+    private let descriptionLabel: UILabel = {
+        let descriptionLabel = UILabel()
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.numberOfLines = 5
+        return descriptionLabel
+    }()
+    
+    
     private func setupImageViewConstraints() {
         NSLayoutConstraint.activate([
             posterImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             posterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             posterImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             posterImageView.widthAnchor.constraint(equalToConstant: 100),
-            posterImageView.heightAnchor.constraint(equalToConstant: 150)
+            posterImageView.heightAnchor.constraint(equalToConstant: 150),
+            
+            titleLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 8),
+            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor,constant: 8),
+
+            descriptionLabel.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 10),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,constant: 8),
+            descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant:8)
         ])
     }
 
-    // Set up the cell with the movie poster image
-    func configure(with imageURL: String?) {
-        // Use SDWebImage to load and cache the image from the URL
-        if let imageURL = imageURL, let url = URL(string: imageURL) {
+    func configure(with movie: Movie?) {
+        let baseURL = "https://image.tmdb.org/t/p/original/"
+        titleLabel.text = movie?.title
+        descriptionLabel.text = movie?.overview
+        if let posterPath = movie?.posterPath, let url = URL(string: baseURL + posterPath) {
             posterImageView.sd_setImage(with: url, placeholderImage: nil)
         } else {
-            posterImageView.image = nil // Set image to nil if the imageURL is nil or invalid
+            posterImageView.image = nil
         }
+
     }
 
-    // Initialize the cell with a reuse identifier
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(posterImageView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(descriptionLabel)
         setupImageViewConstraints()
     }
 

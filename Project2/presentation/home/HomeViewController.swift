@@ -44,7 +44,7 @@ class HomeViewController:UIViewController{
                 self.movies = movieResult.results
                 self.tableView.reloadData()
             case .error(_, let errorMessage):
-                print("Error fetching popular movies: \(errorMessage)")
+                print("Error fetching popular movies: \(String(describing: errorMessage))")
             case .exception(let error):
                 print("Exception: \(error)")
             }
@@ -77,7 +77,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieItem
         let movie = movies[indexPath.row]
-        cell.configure(with: "https://image.tmdb.org/t/p/original/" + movie.posterPath)
+        cell.configure(with: movie)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieDetailVC = MovieDetailController()
+        movieDetailVC.movie = movies[indexPath.row]
+        navigationController?.pushViewController(movieDetailVC, animated: true)
     }
 }
