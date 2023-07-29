@@ -45,13 +45,10 @@ class HomeViewController:UIViewController{
         viewModel.getPopularMovies { result in
             switch result {
             case .success(let movieResult):
-                print(movieResult.results)
                 self.movies = movieResult.results
                 self.tableView.reloadData()
-            case .error(_, let errorMessage):
-                print("Error fetching popular movies: \(String(describing: errorMessage))")
-            case .exception(let error):
-                print("Exception: \(error)")
+            case .error(_, _): break
+            case .exception(_): break
             }
         }
         self.view.backgroundColor = .white
@@ -72,7 +69,6 @@ class HomeViewController:UIViewController{
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {

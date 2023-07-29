@@ -56,10 +56,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let newScreenVC = HomeViewController()
-//
-//        let navigationController = UINavigationController(rootViewController: newScreenVC)
-        
         UIApplication.shared.windows.first?.rootViewController = navigationController
         self.setupUI()
         self.addTargets()
@@ -79,11 +75,6 @@ class ViewController: UIViewController {
     }
     
     private func setupUI(){
-        let newScreenVC = HomeViewController()
-        
-        let navigationController = UINavigationController(rootViewController: newScreenVC)
-        
-        UIApplication.shared.windows.first?.rootViewController = navigationController
         self.view.backgroundColor = .white
         self.textField.translatesAutoresizingMaskIntoConstraints = false
         self.passTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -132,28 +123,23 @@ class ViewController: UIViewController {
     }
     
     @objc func tapSignUpButton(){
-        print("button pressed")
         let vc = SignUpViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func handleSignUpSuccess() {
-        print("handle Sign up success")
         navigationController?.popViewController(animated: true)
     }
     
     @objc func handleSignInSuccess() {
-        print("success happend")
         let newScreenVC = HomeViewController()
-        
         let navigationController = UINavigationController(rootViewController: newScreenVC)
         
         UIApplication.shared.windows.first?.rootViewController = navigationController
-        
+    
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 }
-

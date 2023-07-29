@@ -11,6 +11,7 @@ import UIKit
 import Resolver
 
 class MovieDetailController: UIViewController {
+    
     @LazyInjected private var viewModel: MovieDetailViewModel
     
     var movie: Movie?
@@ -21,7 +22,6 @@ class MovieDetailController: UIViewController {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
@@ -125,7 +125,6 @@ extension MovieDetailController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // Adjust the cell size according to your needs
         return CGSize(width: 100, height: 150)
     }
 }

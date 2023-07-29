@@ -37,8 +37,7 @@ class SignInViewModel {
                 NotificationCenter.default.post(name: Notification.Name("SignInSuccessNotification"), object: nil)
             case .error(_, let message):
                 self.showAlert(title: "Sign-up error:", message: "\(String(describing: message))")
-            case .exception(let error):
-                print("Exception: \(error)")
+            case .exception(_): break
             }
         }
         

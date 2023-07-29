@@ -47,8 +47,8 @@ class SignUpViewModel {
                 self.showAlert(title: "successfully signed up", message: "sign up was a success")
             case .error(_, let message):
                 self.showAlert(title: "Sign-up error:", message: "\(String(describing: message))")
-            case .exception(let error):
-                print("Exception: \(error)")
+                
+            case .exception(_): break
             }
         }
     }

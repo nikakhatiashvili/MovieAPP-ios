@@ -124,13 +124,10 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func tapSignUpButton(){
-        print("sign up button pressed")
         signUpViewModel.email = emailTextField.text ?? ""
         signUpViewModel.username = usernameTextField.text ?? ""
         signUpViewModel.password = passTextField.text ?? ""
         signUpViewModel.repeatPass = repeatPassTextField.text ?? ""
         signUpViewModel.signUp()
     }
-
-
 }

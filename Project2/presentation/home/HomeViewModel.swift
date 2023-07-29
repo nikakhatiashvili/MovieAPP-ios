@@ -20,17 +20,16 @@ class HomeViewModel:ObservableObject {
         
         movieUseCase.getPopularMovies(){ [self] result in
             switch result {
+                
             case .success(let result):
-                print("got movies successfully")
                 self.movies = result.results
                 completion(.success(result))
-            case .error(_, let message):
-                print(message ?? "")
-                completion(.error(0, message))
                 
+            case .error(_, let message):
+                completion(.error(0, message))
+    
             case .exception(_): break
             }
         }
-        
     }
 }
