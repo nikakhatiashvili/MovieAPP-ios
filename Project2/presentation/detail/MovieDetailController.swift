@@ -6,16 +6,33 @@
 //
 
 import Foundation
+import Foundation
 import UIKit
+import Resolver
 
 class MovieDetailController: UIViewController {
+    @LazyInjected private var viewModel: MovieDetailViewModel
     
     var movie: Movie?
     let baseURL = "https://image.tmdb.org/t/p/original/"
     
+    private var cast: [Cast] = []
+    
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
+    }()
+    
     private let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textColor = .black
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
         return titleLabel
     }()
@@ -38,35 +55,53 @@ class MovieDetailController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         setupUi()
         setupViewConstraints()
+        viewModel.getDetails(id: movie?.id ?? 1) { result in
+            switch result {
+            case .success(let movieResult):
+                self.cast = movieResult.cast
+                self.collectionView.reloadData()
+            case .error(_, let errorMessage):
+                print("Error fetching popular movies: \(String(describing: errorMessage))")
+            case .exception(let error):
+                print("Exception: \(error)")
+            }
+        }
     }
     
-    private func setupViewConstraints(){
+    private func setupViewConstraints() {
         NSLayoutConstraint.activate([
             posterImageView.topAnchor.constraint(equalTo: view.topAnchor),
             posterImageView.leftAnchor.constraint(equalTo: view.leftAnchor),
             posterImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             posterImageView.heightAnchor.constraint(equalToConstant: 500),
             
-            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor,constant: 15),
+            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10)
+            descriptionLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            
+            collectionView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+            collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,constant: 20)
         ])
+        
+        collectionView.register(CastItem.self, forCellWithReuseIdentifier: "CastCell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
-    
-    
-    private func setupUi(){
+    private func setupUi() {
         self.view.backgroundColor = .white
         self.view.addSubview(posterImageView)
         self.view.addSubview(titleLabel)
         self.view.addSubview(descriptionLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(collectionView)
+        
         titleLabel.text = movie?.title ?? ""
         descriptionLabel.text = movie?.overview ?? ""
         if let posterPath = movie?.posterPath, let url = URL(string: baseURL + posterPath) {
@@ -74,5 +109,23 @@ class MovieDetailController: UIViewController {
         } else {
             posterImageView.image = nil
         }
+    }
+}
+
+extension MovieDetailController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cast.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCell", for: indexPath) as! CastItem
+        let movie = cast[indexPath.row]
+        cell.configure(with: movie)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Adjust the cell size according to your needs
+        return CGSize(width: 100, height: 150)
     }
 }

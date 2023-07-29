@@ -16,12 +16,14 @@ class HomeViewController:UIViewController{
     
     private var movies: [Movie] = []
     
-//    private let textview : UILabel = {
-//        let textview = UILabel()
-//        textview.text = ""
-//        textview.textColor = .systemRed
-//        return textview
-//    }()
+    private let moviesLabel: UILabel = {
+        let moviesLabel = UILabel()
+        moviesLabel.text = "Popular Movies"
+        moviesLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        moviesLabel.translatesAutoresizingMaskIntoConstraints = false
+        moviesLabel.textColor = .black
+        return moviesLabel
+    }()
     
     private let tableView : UITableView = {
         let tableView = UITableView()
@@ -36,7 +38,10 @@ class HomeViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(tableView)
+        self.view.addSubview(moviesLabel)
         self.setupUI()
+        
         viewModel.getPopularMovies { result in
             switch result {
             case .success(let movieResult):
@@ -53,9 +58,11 @@ class HomeViewController:UIViewController{
     }
     
     private func setupUI(){
-        self.view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            moviesLabel.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 100),
+            moviesLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor,constant: 16),
+
+            tableView.topAnchor.constraint(equalTo: moviesLabel.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
@@ -64,7 +71,6 @@ class HomeViewController:UIViewController{
         tableView.register(MovieItem.self, forCellReuseIdentifier: "MovieCell")
         tableView.dataSource = self
         tableView.delegate = self
-    
     }
     
 }

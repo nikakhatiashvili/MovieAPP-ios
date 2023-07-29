@@ -37,6 +37,11 @@ extension Resolver: ResolverRegistering {
         Resolver.register{MovieRepositoryImpl()}.implements(MovieRepository.self)
         Resolver.register{NetworkMediator()}.implements(MovieMediator.self)
         
+        
+        Resolver.register{MovieDetailViewModel()}.scope(.graph)
+        Resolver.register{MovieDetailsUseCase()}.scope(.graph)
+        Resolver.register{MovieDetailRepositoryImpl()}.implements(MovieDetailRepository.self)
+        
     }
 }
 

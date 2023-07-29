@@ -10,4 +10,6 @@ import Foundation
 protocol MovieMediator {
     
     func getPopularMovies(url:String,completion: @escaping (Result<MovieResult>) -> Void)
+    
+    func getMovieDetails(url:String, completion: @escaping (Result<DetailCast>) -> Void)
 }
