@@ -79,7 +79,11 @@ class ViewController: UIViewController {
     }
     
     private func setupUI(){
-
+        let newScreenVC = HomeViewController()
+        
+        let navigationController = UINavigationController(rootViewController: newScreenVC)
+        
+        UIApplication.shared.windows.first?.rootViewController = navigationController
         self.view.backgroundColor = .white
         self.textField.translatesAutoresizingMaskIntoConstraints = false
         self.passTextField.translatesAutoresizingMaskIntoConstraints = false
