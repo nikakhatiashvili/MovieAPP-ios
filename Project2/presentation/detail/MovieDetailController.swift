@@ -55,19 +55,18 @@ class MovieDetailController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addViews()
         setupUi()
         setupViewConstraints()
-        viewModel.getDetails(id: movie?.id ?? 1) { result in
-            switch result {
-            case .success(let movieResult):
-                self.cast = movieResult.cast
-                self.collectionView.reloadData()
-            case .error(_, let errorMessage):
-                print("Error fetching popular movies: \(String(describing: errorMessage))")
-            case .exception(let error):
-                print("Exception: \(error)")
-            }
-        }
+        getDetails()
+    }
+    
+    private func addViews(){
+        self.view.addSubview(posterImageView)
+        self.view.addSubview(titleLabel)
+        self.view.addSubview(descriptionLabel)
+        self.view.addSubview(collectionView)
+        self.view.backgroundColor = .white
     }
     
     private func setupViewConstraints() {
@@ -95,19 +94,26 @@ class MovieDetailController: UIViewController {
         collectionView.delegate = self
     }
     
-    private func setupUi() {
-        self.view.backgroundColor = .white
-        self.view.addSubview(posterImageView)
-        self.view.addSubview(titleLabel)
-        self.view.addSubview(descriptionLabel)
-        self.view.addSubview(collectionView)
-        
+    private func setupUi(){
         titleLabel.text = movie?.title ?? ""
         descriptionLabel.text = movie?.overview ?? ""
+        
         if let posterPath = movie?.posterPath, let url = URL(string: baseURL + posterPath) {
             posterImageView.sd_setImage(with: url, placeholderImage: nil)
         } else {
             posterImageView.image = nil
+        }
+    }
+    
+    private func getDetails(){
+        viewModel.getDetails(id: movie?.id ?? 1) { result in
+            switch result {
+            case .success(let movieResult):
+                self.cast = movieResult.cast
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print("Error fetching movie details: \(error)")
+            }
         }
     }
 }

@@ -16,28 +16,28 @@ class SignUpViewController: UIViewController {
         let emailTextField = UITextField()
         emailTextField.layer.cornerRadius = 2
         emailTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 22))
-        
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.leftViewMode = .always
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 20)
         ]
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: attributes)
         emailTextField.borderStyle = .roundedRect
-       return emailTextField
+        return emailTextField
     }()
     
     private let usernameTextField : UITextField = {
         let usernameTextField = UITextField()
         usernameTextField.layer.cornerRadius = 2
         usernameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 22))
-        
+        usernameTextField.translatesAutoresizingMaskIntoConstraints = false
         usernameTextField.leftViewMode = .always
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 20)
         ]
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: attributes)
         usernameTextField.borderStyle = .roundedRect
-       return usernameTextField
+        return usernameTextField
     }()
     
     private let passTextField : UITextField = {
@@ -46,9 +46,10 @@ class SignUpViewController: UIViewController {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 20)
         ]
+        passTextField.translatesAutoresizingMaskIntoConstraints = false
         passTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: attributes)
         passTextField.borderStyle = .roundedRect
-       return passTextField
+        return passTextField
     }()
     
     private let repeatPassTextField : UITextField = {
@@ -57,19 +58,21 @@ class SignUpViewController: UIViewController {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 20)
         ]
+        repeatPassTextField.translatesAutoresizingMaskIntoConstraints = false
         repeatPassTextField.attributedPlaceholder = NSAttributedString(string: "Repeat password", attributes: attributes)
         repeatPassTextField.borderStyle = .roundedRect
-       return repeatPassTextField
+        return repeatPassTextField
     }()
     
     private let signUpButton : UIButton = {
         let signUpButton = UIButton()
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.backgroundColor = .systemBlue
         signUpButton.setTitle("sign Up", for: .normal)
         signUpButton.layer.cornerRadius = 8
         return signUpButton
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -80,12 +83,6 @@ class SignUpViewController: UIViewController {
     private func setupUi(){
         self.addViews()
         self.setLayout()
-        
-        self.signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        self.emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.usernameTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.passTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.repeatPassTextField.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setLayout(){

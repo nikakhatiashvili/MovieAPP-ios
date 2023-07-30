@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .systemBlue
         button.setTitle("sign in", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 8
         return button
     }()
@@ -23,6 +24,7 @@ class ViewController: UIViewController {
     private let signUpButton : UIButton = {
         let  signUpButton = UIButton()
         signUpButton.backgroundColor = .systemBlue
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
         signUpButton.setTitle("Sign Up", for: .normal)
         signUpButton.layer.cornerRadius = 10
         return signUpButton
@@ -32,7 +34,7 @@ class ViewController: UIViewController {
         let textField = UITextField()
         textField.layer.cornerRadius = 2
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 22))
-        
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.leftViewMode = .always
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 20)
@@ -48,6 +50,7 @@ class ViewController: UIViewController {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 20)
         ]
+        passTextField.translatesAutoresizingMaskIntoConstraints = false
         passTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: attributes)
         passTextField.borderStyle = .roundedRect
         return passTextField
@@ -59,8 +62,8 @@ class ViewController: UIViewController {
         UIApplication.shared.windows.first?.rootViewController = navigationController
         self.setupUI()
         self.addTargets()
-        
     }
+    
     private func addTargets(){
         self.button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(tapSignUpButton), for: .touchUpInside)
@@ -76,11 +79,6 @@ class ViewController: UIViewController {
     
     private func setupUI(){
         self.view.backgroundColor = .white
-        self.textField.translatesAutoresizingMaskIntoConstraints = false
-        self.passTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.button.translatesAutoresizingMaskIntoConstraints = false
-        self.signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        
         self.addViews()
         self.setLayout()
     }
@@ -134,9 +132,7 @@ class ViewController: UIViewController {
     @objc func handleSignInSuccess() {
         let newScreenVC = HomeViewController()
         let navigationController = UINavigationController(rootViewController: newScreenVC)
-        
         UIApplication.shared.windows.first?.rootViewController = navigationController
-    
     }
     
     deinit {

@@ -12,7 +12,7 @@ class MovieUseCase {
     
     @Injected private var movieRepository:MovieRepository
     
-    public func getPopularMovies(completion: @escaping (Result<MovieResult>) -> Void){
+    public func getPopularMovies(completion: @escaping (Result<MovieResult, Error>) -> Void){
         movieRepository.getPopularMovies(){
             result in completion(result)
         }

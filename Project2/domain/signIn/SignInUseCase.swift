@@ -15,7 +15,7 @@ class SignInUseCase{
         self.signInRepository = signInRepository
     }
 
-    public func signIn(email: String, password: String, completion: @escaping (Result<String>) -> Void) {
+    public func signIn(email: String, password: String, completion: @escaping (Result<String ,Error>) -> Void) {
         signInRepository.signIn(email: email, pass: password) { result in
             completion(result)
         }

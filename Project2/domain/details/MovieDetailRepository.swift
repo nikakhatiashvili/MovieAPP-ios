@@ -9,5 +9,5 @@ import Foundation
 
 protocol MovieDetailRepository{
     
-    func getMovieDetails(id:Int, completion: @escaping (Result<DetailCast>) -> Void)
+    func getMovieDetails(id:Int, completion: @escaping (Result<DetailCast, Error>) -> Void)
 }

@@ -25,33 +25,36 @@ class HomeViewController:UIViewController{
         return moviesLabel
     }()
     
-    private let tableView : UITableView = {
+    private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.showsHorizontalScrollIndicator = false
         tableView.isPagingEnabled = true
-
         tableView.backgroundColor = .white
-        
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(tableView)
-        self.view.addSubview(moviesLabel)
-        self.setupUI()
-        
+        addViews()
+        setupUI()
+        getMovies()
+    }
+    
+    private func getMovies(){
         viewModel.getPopularMovies { result in
             switch result {
             case .success(let movieResult):
                 self.movies = movieResult.results
                 self.tableView.reloadData()
-            case .error(_, _): break
-            case .exception(_): break
+            case .failure(_): break
             }
         }
-        self.view.backgroundColor = .white
+    }
+    
+    private func addViews(){
+        self.view.addSubview(tableView)
+        self.view.addSubview(moviesLabel)
     }
     
     private func setupUI(){
@@ -68,6 +71,7 @@ class HomeViewController:UIViewController{
         tableView.register(MovieItem.self, forCellReuseIdentifier: "MovieCell")
         tableView.dataSource = self
         tableView.delegate = self
+        self.view.backgroundColor = .white
     }
 }
 

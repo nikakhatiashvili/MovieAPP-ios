@@ -14,7 +14,7 @@ class SignUpRepositoryImpl: SignUpRepository {
     @Injected private var authMediator:AuthenticationMediator
     
     
-    func signUp(email: String, pass: String, completion: @escaping (Result<String>) -> Void) {
+    func signUp(email: String, pass: String, completion: @escaping (Result<String,Error>) -> Void) {
         authMediator.signUp(email: email, pass: pass, completion: completion)
     }
 }

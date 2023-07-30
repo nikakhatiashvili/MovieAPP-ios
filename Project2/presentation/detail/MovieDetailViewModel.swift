@@ -12,7 +12,7 @@ class MovieDetailViewModel{
     
     @Injected private var movieDetailUsecase: MovieDetailsUseCase
     
-    func getDetails(id:Int, completion: @escaping (Result<DetailCast>) -> Void){
+    func getDetails(id:Int, completion: @escaping (Result<DetailCast, Error>) -> Void){
         movieDetailUsecase.getMovieDetails(id: id, completion: completion)
     }
 }

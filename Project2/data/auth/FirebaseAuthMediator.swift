@@ -10,11 +10,11 @@ import FirebaseAuth
 
 class FirebaseAuthMediator: AuthenticationMediator {
     
-    func signIn(email: String, pass: String, completion: @escaping (Result<String>) -> Void) {
+    func signIn(email: String, pass: String, completion: @escaping (Result<String, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: pass)
         { authResult, error in
             if let error = error {
-                completion(.error(nil, error))
+                completion(.failure(error))
             } else {
                 let userID = authResult?.user.email ?? ""
                 completion(.success(userID))
@@ -22,11 +22,11 @@ class FirebaseAuthMediator: AuthenticationMediator {
         }
     }
     
-    func signUp(email: String, pass: String, completion: @escaping (Result<String>) -> Void) {
+    func signUp(email: String, pass: String, completion: @escaping (Result<String, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: pass){
             authResult, error in
             if let error = error {
-                completion(.error(nil, error))
+                completion(.failure(error))
             }else{
                 let userID = authResult?.user.email ?? ""
                 completion(.success(userID))
