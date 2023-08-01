@@ -60,6 +60,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.windows.first?.rootViewController = navigationController
+        let newScreenVC = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: newScreenVC)
+        UIApplication.shared.windows.first?.rootViewController = navigationController
         self.setupUI()
         self.addTargets()
     }
@@ -78,6 +81,7 @@ class ViewController: UIViewController {
     }
     
     private func setupUI(){
+        
         self.view.backgroundColor = .white
         self.addViews()
         self.setLayout()

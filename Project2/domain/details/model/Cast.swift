@@ -30,8 +30,6 @@ struct Cast: Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        // Standard properties
         adult = try container.decode(Bool.self, forKey: .adult)
         gender = try container.decode(Int.self, forKey: .gender)
         id = try container.decode(Int.self, forKey: .id)

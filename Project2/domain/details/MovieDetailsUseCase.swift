@@ -12,7 +12,13 @@ class MovieDetailsUseCase{
     
     @Injected private var movieDetailRepository: MovieDetailRepository
     
-    public func getMovieDetails(id:Int, completion: @escaping (Result<DetailCast, Error>) -> Void){
+    public func getMovieCast(id:Int, completion: @escaping (Result<DetailCast, Error>) -> Void){
+        print(id)
+        movieDetailRepository.getMovieCast(id: id, completion: completion)
+    }
+    
+    public func getMovieDetails(id:Int, completion: @escaping (Result<DetailMovie, Error>) -> Void){
+        print(id)
         movieDetailRepository.getMovieDetails(id: id, completion: completion)
     }
 }
