@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Foundation
 import UIKit
 import Resolver
 
@@ -16,7 +15,7 @@ class MovieDetailController: UIViewController {
     
     var movie: Movie?
     
-    private var movieDetals:DetailMovie?
+
     let baseURL = "https://image.tmdb.org/t/p/original/"
     
     
@@ -38,7 +37,6 @@ class MovieDetailController: UIViewController {
         addViews()
         setupUi()
         setupViewConstraints()
-        getMovieDetails()
     }
     
     private func addViews(){
@@ -72,15 +70,6 @@ class MovieDetailController: UIViewController {
         }
     }
     
-    private func getMovieDetails(){
-        viewModel.getMovieDetails(id: movie?.id ?? -1) { result in
-            switch result {
-            case .success(let movieResult):
-                self.movieDetals = movieResult
-            case .failure(let error):
-                print("Error fetching movie details: \(error)")
-            }
-        }
-    }
+
     
 }

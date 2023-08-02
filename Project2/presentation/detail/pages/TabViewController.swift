@@ -43,7 +43,7 @@ class TabViewController: TabmanViewController {
         bar.layout.transitionStyle = .snap
         bar.layout.contentMode = .fit
         bar.indicator.tintColor = .systemPink
-
+        bar.layout.view.backgroundColor = .white
         bar.buttons.customize { button in
             button.tintColor = .gray
             button.selectedTintColor = .systemPink

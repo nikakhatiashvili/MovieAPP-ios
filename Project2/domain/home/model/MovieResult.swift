@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct MovieResult: Codable {
     let page: Int
     let results: [Movie]

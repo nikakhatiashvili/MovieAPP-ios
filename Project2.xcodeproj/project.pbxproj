@@ -17,12 +17,24 @@
 		CE48FB6A2A6FE78A005AECF4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */; };
 		CE48FB6C2A6FF175005AECF4 /* FirebaseAuthMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */; };
 		CE48FB6E2A6FF1B8005AECF4 /* AuthenticationMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */; };
+		CE5040052A78FF0500E27D77 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5040042A78FF0500E27D77 /* InfoController.swift */; };
+		CE5040082A78FF8100E27D77 /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5040072A78FF8100E27D77 /* ReviewsController.swift */; };
+		CE50400B2A7910EF00E27D77 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = CE50400A2A7910EF00E27D77 /* Tabman */; };
+		CE50400D2A79122900E27D77 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50400C2A79122900E27D77 /* TabViewController.swift */; };
+		CE50400F2A7925D400E27D77 /* CastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50400E2A7925D400E27D77 /* CastViewController.swift */; };
 		CE5E241A2A744E7500FB8972 /* MovieDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24192A744E7500FB8972 /* MovieDetailController.swift */; };
 		CE5E241C2A74528B00FB8972 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E241B2A74528B00FB8972 /* MovieRepository.swift */; };
 		CE5E24212A74536F00FB8972 /* MovieRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24202A74536F00FB8972 /* MovieRepositoryImpl.swift */; };
 		CE5E24232A7453FF00FB8972 /* NetworkMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24222A7453FF00FB8972 /* NetworkMediator.swift */; };
 		CE5E24252A7454C500FB8972 /* MovieMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24242A7454C500FB8972 /* MovieMediator.swift */; };
 		CE5E24272A74586300FB8972 /* MovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24262A74586300FB8972 /* MovieUseCase.swift */; };
+		CE5E24292A75741F00FB8972 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24282A75741F00FB8972 /* MovieDetailViewModel.swift */; };
+		CE5E242D2A7575C900FB8972 /* MovieDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E242C2A7575C900FB8972 /* MovieDetailsUseCase.swift */; };
+		CE5E242F2A75776000FB8972 /* MovieDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E242E2A75776000FB8972 /* MovieDetailRepository.swift */; };
+		CE5E24322A75782500FB8972 /* MovieDetailRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24312A75782500FB8972 /* MovieDetailRepositoryImpl.swift */; };
+		CE5E24352A757B2A00FB8972 /* DetailCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24342A757B2A00FB8972 /* DetailCast.swift */; };
+		CE5E24372A757B4100FB8972 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24362A757B4100FB8972 /* Cast.swift */; };
+		CE5E24392A75849A00FB8972 /* CastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24382A75849A00FB8972 /* CastItem.swift */; };
 		CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6028CF2A6593420061E008 /* SignUpViewModel.swift */; };
 		CE6028D22A6593610061E008 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6028D12A6593610061E008 /* ValidationResult.swift */; };
 		CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E94A2A64096000811F24 /* AppDelegate.swift */; };
@@ -48,6 +60,8 @@
 		CECAE87A2A6996E80072EF80 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8792A6996E80072EF80 /* SignInUseCase.swift */; };
 		CECAE87C2A69974B0072EF80 /* SignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE87B2A69974B0072EF80 /* SignInRepository.swift */; };
 		CECAE8832A6997E80072EF80 /* SignInRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8822A6997E80072EF80 /* SignInRepositoryImpl.swift */; };
+		CEF39C202A77E6BF00F91A72 /* DetailMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF39C1F2A77E6BF00F91A72 /* DetailMovie.swift */; };
+		CEF39C222A77E72C00F91A72 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF39C212A77E72C00F91A72 /* Genre.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,12 +90,23 @@
 		CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthMediator.swift; sourceTree = "<group>"; };
 		CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMediator.swift; sourceTree = "<group>"; };
+		CE5040042A78FF0500E27D77 /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
+		CE5040072A78FF8100E27D77 /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
+		CE50400C2A79122900E27D77 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		CE50400E2A7925D400E27D77 /* CastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewController.swift; sourceTree = "<group>"; };
 		CE5E24192A744E7500FB8972 /* MovieDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailController.swift; sourceTree = "<group>"; };
 		CE5E241B2A74528B00FB8972 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		CE5E24202A74536F00FB8972 /* MovieRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositoryImpl.swift; sourceTree = "<group>"; };
 		CE5E24222A7453FF00FB8972 /* NetworkMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMediator.swift; sourceTree = "<group>"; };
 		CE5E24242A7454C500FB8972 /* MovieMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMediator.swift; sourceTree = "<group>"; };
 		CE5E24262A74586300FB8972 /* MovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUseCase.swift; sourceTree = "<group>"; };
+		CE5E24282A75741F00FB8972 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		CE5E242C2A7575C900FB8972 /* MovieDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsUseCase.swift; sourceTree = "<group>"; };
+		CE5E242E2A75776000FB8972 /* MovieDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailRepository.swift; sourceTree = "<group>"; };
+		CE5E24312A75782500FB8972 /* MovieDetailRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailRepositoryImpl.swift; sourceTree = "<group>"; };
+		CE5E24342A757B2A00FB8972 /* DetailCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCast.swift; sourceTree = "<group>"; };
+		CE5E24362A757B4100FB8972 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		CE5E24382A75849A00FB8972 /* CastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastItem.swift; sourceTree = "<group>"; };
 		CE6028CF2A6593420061E008 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		CE6028D12A6593610061E008 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		CE68E9472A64096000811F24 /* Project2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +133,8 @@
 		CECAE8792A6996E80072EF80 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
 		CECAE87B2A69974B0072EF80 /* SignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepository.swift; sourceTree = "<group>"; };
 		CECAE8822A6997E80072EF80 /* SignInRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepositoryImpl.swift; sourceTree = "<group>"; };
+		CEF39C1F2A77E6BF00F91A72 /* DetailMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovie.swift; sourceTree = "<group>"; };
+		CEF39C212A77E72C00F91A72 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +147,7 @@
 				CECAE8602A692D340072EF80 /* FirebaseAuth in Frameworks */,
 				CECAE8622A692D340072EF80 /* FirebaseAuthCombine-Community in Frameworks */,
 				CE388ED12A71604A00EE56B3 /* SDWebImage in Frameworks */,
+				CE50400B2A7910EF00E27D77 /* Tabman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +173,6 @@
 			children = (
 				CE5E241D2A74529400FB8972 /* model */,
 				CE5E241B2A74528B00FB8972 /* MovieRepository.swift */,
-				CE5E24242A7454C500FB8972 /* MovieMediator.swift */,
 				CE5E24262A74586300FB8972 /* MovieUseCase.swift */,
 			);
 			path = home;
@@ -161,10 +188,24 @@
 			path = home;
 			sourceTree = "<group>";
 		};
+		CE5040032A78FEE900E27D77 /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				CE5040042A78FF0500E27D77 /* InfoController.swift */,
+				CE5040072A78FF8100E27D77 /* ReviewsController.swift */,
+				CE50400C2A79122900E27D77 /* TabViewController.swift */,
+				CE50400E2A7925D400E27D77 /* CastViewController.swift */,
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
 		CE5E24182A744E5D00FB8972 /* detail */ = {
 			isa = PBXGroup;
 			children = (
+				CE5040032A78FEE900E27D77 /* pages */,
 				CE5E24192A744E7500FB8972 /* MovieDetailController.swift */,
+				CE5E24282A75741F00FB8972 /* MovieDetailViewModel.swift */,
+				CE5E24382A75849A00FB8972 /* CastItem.swift */,
 			);
 			path = detail;
 			sourceTree = "<group>";
@@ -182,6 +223,8 @@
 		CE5E241E2A74535800FB8972 /* auth */ = {
 			isa = PBXGroup;
 			children = (
+				CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */,
+				CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */,
 				CECAE8822A6997E80072EF80 /* SignInRepositoryImpl.swift */,
 				CECAE8732A6973050072EF80 /* SignUpRepositoryImpl.swift */,
 			);
@@ -191,10 +234,40 @@
 		CE5E241F2A74536000FB8972 /* movies */ = {
 			isa = PBXGroup;
 			children = (
+				CE5E24242A7454C500FB8972 /* MovieMediator.swift */,
 				CE5E24202A74536F00FB8972 /* MovieRepositoryImpl.swift */,
 				CE5E24222A7453FF00FB8972 /* NetworkMediator.swift */,
 			);
 			path = movies;
+			sourceTree = "<group>";
+		};
+		CE5E242A2A7575A500FB8972 /* details */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E24332A757B1C00FB8972 /* model */,
+				CE5E242C2A7575C900FB8972 /* MovieDetailsUseCase.swift */,
+				CE5E242E2A75776000FB8972 /* MovieDetailRepository.swift */,
+			);
+			path = details;
+			sourceTree = "<group>";
+		};
+		CE5E24302A75781300FB8972 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E24312A75782500FB8972 /* MovieDetailRepositoryImpl.swift */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
+		CE5E24332A757B1C00FB8972 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E24342A757B2A00FB8972 /* DetailCast.swift */,
+				CE5E24362A757B4100FB8972 /* Cast.swift */,
+				CEF39C1F2A77E6BF00F91A72 /* DetailMovie.swift */,
+				CEF39C212A77E72C00F91A72 /* Genre.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		CE68E93E2A64096000811F24 = {
@@ -301,6 +374,7 @@
 		CECAE86A2A6947370072EF80 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				CE5E242A2A7575A500FB8972 /* details */,
 				CE0515902A71430B00680219 /* home */,
 				CECAE8812A6997C60072EF80 /* common */,
 				CECAE8802A6997B20072EF80 /* signUp */,
@@ -312,9 +386,9 @@
 		CECAE86C2A6947470072EF80 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				CE5E24302A75781300FB8972 /* detail */,
 				CE5E241F2A74536000FB8972 /* movies */,
 				CE5E241E2A74535800FB8972 /* auth */,
-				CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -324,7 +398,6 @@
 			children = (
 				CECAE87B2A69974B0072EF80 /* SignInRepository.swift */,
 				CECAE8792A6996E80072EF80 /* SignInUseCase.swift */,
-				CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */,
 			);
 			path = signIn;
 			sourceTree = "<group>";
@@ -368,6 +441,7 @@
 				CECAE8662A69463A0072EF80 /* Resolver */,
 				CE48FB672A6FE648005AECF4 /* Alamofire */,
 				CE388ED02A71604A00EE56B3 /* SDWebImage */,
+				CE50400A2A7910EF00E27D77 /* Tabman */,
 			);
 			productName = Project2;
 			productReference = CE68E9472A64096000811F24 /* Project2.app */;
@@ -446,6 +520,7 @@
 				CECAE8652A69463A0072EF80 /* XCRemoteSwiftPackageReference "Resolver" */,
 				CE48FB662A6FE648005AECF4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CE388ECF2A71604A00EE56B3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				CE5040092A7910EF00E27D77 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = CE68E9482A64096000811F24 /* Products */;
 			projectDirPath = "";
@@ -491,14 +566,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				CECAE86E2A6947920072EF80 /* AppDelegate+Injection.swift in Sources */,
+				CE5E24322A75782500FB8972 /* MovieDetailRepositoryImpl.swift in Sources */,
 				CE48FB6A2A6FE78A005AECF4 /* HomeViewModel.swift in Sources */,
 				CECAE8722A6972460072EF80 /* SignUpRepository.swift in Sources */,
+				CE50400F2A7925D400E27D77 /* CastViewController.swift in Sources */,
+				CE5E242D2A7575C900FB8972 /* MovieDetailsUseCase.swift in Sources */,
 				CE68E94F2A64096000811F24 /* ViewController.swift in Sources */,
 				CE48FB282A6AC161005AECF4 /* HomeViewController.swift in Sources */,
 				CE388ECC2A71496C00EE56B3 /* MovieResult.swift in Sources */,
 				CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */,
+				CEF39C222A77E72C00F91A72 /* Genre.swift in Sources */,
 				CECAE8782A6996870072EF80 /* SignInViewModel.swift in Sources */,
 				CE48FB6C2A6FF175005AECF4 /* FirebaseAuthMediator.swift in Sources */,
+				CE50400D2A79122900E27D77 /* TabViewController.swift in Sources */,
+				CE5040082A78FF8100E27D77 /* ReviewsController.swift in Sources */,
 				CE388ECE2A71503A00EE56B3 /* MovieItem.swift in Sources */,
 				CE0515942A71434400680219 /* OriginalLanguage.swift in Sources */,
 				CE5E24232A7453FF00FB8972 /* NetworkMediator.swift in Sources */,
@@ -510,9 +591,15 @@
 				CECAE8742A6973050072EF80 /* SignUpRepositoryImpl.swift in Sources */,
 				CE5E241A2A744E7500FB8972 /* MovieDetailController.swift in Sources */,
 				CECAE87A2A6996E80072EF80 /* SignInUseCase.swift in Sources */,
+				CE5E242F2A75776000FB8972 /* MovieDetailRepository.swift in Sources */,
+				CE5E24392A75849A00FB8972 /* CastItem.swift in Sources */,
 				CE0515922A71432000680219 /* Movie.swift in Sources */,
+				CEF39C202A77E6BF00F91A72 /* DetailMovie.swift in Sources */,
+				CE5E24292A75741F00FB8972 /* MovieDetailViewModel.swift in Sources */,
 				CE6028D22A6593610061E008 /* ValidationResult.swift in Sources */,
+				CE5E24352A757B2A00FB8972 /* DetailCast.swift in Sources */,
 				CE5E24252A7454C500FB8972 /* MovieMediator.swift in Sources */,
+				CE5E24372A757B4100FB8972 /* Cast.swift in Sources */,
 				CE68E94D2A64096000811F24 /* SceneDelegate.swift in Sources */,
 				CE68E9802A658ABE00811F24 /* CustomTextField.swift in Sources */,
 				CE5E24212A74536F00FB8972 /* MovieRepositoryImpl.swift in Sources */,
@@ -520,6 +607,7 @@
 				CECAE87C2A69974B0072EF80 /* SignInRepository.swift in Sources */,
 				CE5E241C2A74528B00FB8972 /* MovieRepository.swift in Sources */,
 				CECAE8832A6997E80072EF80 /* SignInRepositoryImpl.swift in Sources */,
+				CE5040052A78FF0500E27D77 /* InfoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,6 +959,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		CE5040092A7910EF00E27D77 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -899,6 +995,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE48FB662A6FE648005AECF4 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		CE50400A2A7910EF00E27D77 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE5040092A7910EF00E27D77 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 		CECAE85F2A692D340072EF80 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
