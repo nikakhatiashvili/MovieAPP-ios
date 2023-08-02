@@ -5,6 +5,7 @@
 //  Created by user on 7/28/23.
 //
 
+
 import Foundation
 import UIKit
 import Resolver
@@ -21,6 +22,17 @@ class MovieDetailController: UIViewController {
     
     private let tabVC = TabViewController()
 
+    let imageContainerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let tabContainerView: UIView = {
+        let tabContainerView = UIView()
+        tabContainerView.translatesAutoresizingMaskIntoConstraints = false
+        return tabContainerView
+    }()
     
     private let posterImageView: UIImageView = {
         let posterImageView = UIImageView()
@@ -41,6 +53,8 @@ class MovieDetailController: UIViewController {
     
     private func addViews(){
         self.view.addSubview(posterImageView)
+        self.view.addSubview(imageContainerView)
+        self.view.addSubview(tabContainerView)
         addChild(tabVC)
         view.addSubview(tabVC.view)
         tabVC.view.translatesAutoresizingMaskIntoConstraints = false
@@ -50,15 +64,28 @@ class MovieDetailController: UIViewController {
     
     private func setupViewConstraints() {
         NSLayoutConstraint.activate([
-            posterImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            posterImageView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            posterImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            posterImageView.heightAnchor.constraint(equalToConstant: 400),
             
-            tabVC.view.topAnchor.constraint(equalTo: posterImageView.bottomAnchor),
-            tabVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tabVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tabVC.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            imageContainerView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageContainerView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            imageContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageContainerView.heightAnchor.constraint(equalToConstant: 400),
+            
+            posterImageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor),
+            posterImageView.leftAnchor.constraint(equalTo: imageContainerView.leftAnchor),
+            posterImageView.rightAnchor.constraint(equalTo: imageContainerView.rightAnchor),
+            posterImageView.heightAnchor.constraint(equalToConstant: 300),
+            
+            tabContainerView.topAnchor.constraint(equalTo: imageContainerView.bottomAnchor),
+            tabContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tabContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tabContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            tabVC.view.topAnchor.constraint(equalTo: tabContainerView.topAnchor),
+            tabVC.view.leftAnchor.constraint(equalTo: tabContainerView.leftAnchor),
+            tabVC.view.rightAnchor.constraint(equalTo: tabContainerView.rightAnchor),
+            tabVC.view.bottomAnchor.constraint(equalTo: tabContainerView.bottomAnchor),
+            
+            
         ])
     }
     
@@ -69,7 +96,5 @@ class MovieDetailController: UIViewController {
             posterImageView.image = nil
         }
     }
-    
-
     
 }
