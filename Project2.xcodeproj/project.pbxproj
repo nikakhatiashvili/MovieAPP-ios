@@ -22,6 +22,8 @@
 		CE50400B2A7910EF00E27D77 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = CE50400A2A7910EF00E27D77 /* Tabman */; };
 		CE50400D2A79122900E27D77 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50400C2A79122900E27D77 /* TabViewController.swift */; };
 		CE50400F2A7925D400E27D77 /* CastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50400E2A7925D400E27D77 /* CastViewController.swift */; };
+		CE5040162A7AE98200E27D77 /* UIGradient in Frameworks */ = {isa = PBXBuildFile; productRef = CE5040152A7AE98200E27D77 /* UIGradient */; };
+		CE5040192A7B0C0000E27D77 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5040182A7B0C0000E27D77 /* CircularProgressBar.swift */; };
 		CE5E241A2A744E7500FB8972 /* MovieDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24192A744E7500FB8972 /* MovieDetailController.swift */; };
 		CE5E241C2A74528B00FB8972 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E241B2A74528B00FB8972 /* MovieRepository.swift */; };
 		CE5E24212A74536F00FB8972 /* MovieRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E24202A74536F00FB8972 /* MovieRepositoryImpl.swift */; };
@@ -94,6 +96,7 @@
 		CE5040072A78FF8100E27D77 /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
 		CE50400C2A79122900E27D77 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		CE50400E2A7925D400E27D77 /* CastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewController.swift; sourceTree = "<group>"; };
+		CE5040182A7B0C0000E27D77 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		CE5E24192A744E7500FB8972 /* MovieDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailController.swift; sourceTree = "<group>"; };
 		CE5E241B2A74528B00FB8972 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		CE5E24202A74536F00FB8972 /* MovieRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5040162A7AE98200E27D77 /* UIGradient in Frameworks */,
 				CECAE8672A69463A0072EF80 /* Resolver in Frameworks */,
 				CE48FB682A6FE648005AECF4 /* Alamofire in Frameworks */,
 				CECAE8602A692D340072EF80 /* FirebaseAuth in Frameworks */,
@@ -197,6 +201,14 @@
 				CE50400E2A7925D400E27D77 /* CastViewController.swift */,
 			);
 			path = pages;
+			sourceTree = "<group>";
+		};
+		CE5040172A7B0BF000E27D77 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				CE5040182A7B0C0000E27D77 /* CircularProgressBar.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		CE5E24182A744E5D00FB8972 /* detail */ = {
@@ -363,6 +375,7 @@
 		CECAE8692A69472B0072EF80 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CE5040172A7B0BF000E27D77 /* common */,
 				CE5E24182A744E5D00FB8972 /* detail */,
 				CE48FB652A6FDB13005AECF4 /* home */,
 				CE68E97D2A6581E300811F24 /* signIn */,
@@ -442,6 +455,7 @@
 				CE48FB672A6FE648005AECF4 /* Alamofire */,
 				CE388ED02A71604A00EE56B3 /* SDWebImage */,
 				CE50400A2A7910EF00E27D77 /* Tabman */,
+				CE5040152A7AE98200E27D77 /* UIGradient */,
 			);
 			productName = Project2;
 			productReference = CE68E9472A64096000811F24 /* Project2.app */;
@@ -521,6 +535,7 @@
 				CE48FB662A6FE648005AECF4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CE388ECF2A71604A00EE56B3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				CE5040092A7910EF00E27D77 /* XCRemoteSwiftPackageReference "Tabman" */,
+				CE5040142A7AE98100E27D77 /* XCRemoteSwiftPackageReference "UIGradient" */,
 			);
 			productRefGroup = CE68E9482A64096000811F24 /* Products */;
 			projectDirPath = "";
@@ -592,6 +607,7 @@
 				CE5E241A2A744E7500FB8972 /* MovieDetailController.swift in Sources */,
 				CECAE87A2A6996E80072EF80 /* SignInUseCase.swift in Sources */,
 				CE5E242F2A75776000FB8972 /* MovieDetailRepository.swift in Sources */,
+				CE5040192A7B0C0000E27D77 /* CircularProgressBar.swift in Sources */,
 				CE5E24392A75849A00FB8972 /* CastItem.swift in Sources */,
 				CE0515922A71432000680219 /* Movie.swift in Sources */,
 				CEF39C202A77E6BF00F91A72 /* DetailMovie.swift in Sources */,
@@ -967,6 +983,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		CE5040142A7AE98100E27D77 /* XCRemoteSwiftPackageReference "UIGradient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dqhieu/UIGradient.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		CECAE85E2A692D340072EF80 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1000,6 +1024,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE5040092A7910EF00E27D77 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		CE5040152A7AE98200E27D77 /* UIGradient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE5040142A7AE98100E27D77 /* XCRemoteSwiftPackageReference "UIGradient" */;
+			productName = UIGradient;
 		};
 		CECAE85F2A692D340072EF80 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

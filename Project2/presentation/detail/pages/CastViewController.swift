@@ -78,6 +78,6 @@ extension CastViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:self.view.frame.width / 3, height: view.frame.size.width/2.2 + 15)
+        return CGSize(width: 120, height: 140)
     }
 }

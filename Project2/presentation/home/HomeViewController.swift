@@ -45,9 +45,11 @@ class HomeViewController:UIViewController{
         viewModel.getPopularMovies { result in
             switch result {
             case .success(let movieResult):
+                print(movieResult)
                 self.movies = movieResult.results
                 self.tableView.reloadData()
-            case .failure(_): break
+            case .failure(let error):
+                print(error)
             }
         }
     }
