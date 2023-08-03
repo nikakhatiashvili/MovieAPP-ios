@@ -42,10 +42,10 @@ class CastViewController: UIViewController {
     
     private func setupView(){
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60),
+            collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 70),
             collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
-            collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 20)
         ])
         
         collectionView.register(CastItem.self, forCellWithReuseIdentifier: "CastCell")
@@ -78,6 +78,6 @@ extension CastViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 140)
+        return CGSize(width: 120, height: 180)
     }
 }

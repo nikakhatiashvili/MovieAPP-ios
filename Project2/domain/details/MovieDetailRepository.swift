@@ -12,4 +12,6 @@ protocol MovieDetailRepository{
     func getMovieCast(id:Int, completion: @escaping (Result<DetailCast, Error>) -> Void)
     
     func getMovieDetails(id:Int, completion: @escaping (Result<DetailMovie, Error>) -> Void)
+    
+    func getMovieReviews(id:Int, completion: @escaping (Result<ReviewResult, Error>) -> Void)
 }

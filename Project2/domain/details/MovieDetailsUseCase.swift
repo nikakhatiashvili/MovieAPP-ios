@@ -21,4 +21,7 @@ class MovieDetailsUseCase{
         print(id)
         movieDetailRepository.getMovieDetails(id: id, completion: completion)
     }
+    public func getMovieReviews(id:Int, completion: @escaping (Result<ReviewResult, Error>) -> Void){
+        movieDetailRepository.getMovieReviews(id: id, completion: completion)
+    }
 }

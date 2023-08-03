@@ -24,4 +24,9 @@ class MovieDetailRepositoryImpl: MovieDetailRepository {
         movieMediator.makeApiCall(DetailMovie.self, url: urlString, completion:completion)
     }
     
+    func getMovieReviews(id: Int, completion: @escaping (Result<ReviewResult, Error>) -> Void) {
+        let apiKey = "movie/\(id)/reviews?api_key=7f39984135c9621c058c979457e46b42"
+        let urlString = "https://api.themoviedb.org/3/\(apiKey)"
+        movieMediator.makeApiCall(ReviewResult.self, url: urlString, completion:completion)
+    }
 }

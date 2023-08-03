@@ -198,11 +198,6 @@ class MovieDetailController: UIViewController {
     }
     
     private func setupUi() {
-        if movie?.title == "Barbie" {
-            titleLabel.textColor = .systemPink
-        } else {
-            titleLabel.textColor = .black
-        }
         if detailMovie?.voteAverage != nil {
             let percentageValue = ((detailMovie?.voteAverage)!  / 10.0) * 100.0
             let percentageString = String(format: "%.0f%%", percentageValue)
@@ -211,31 +206,14 @@ class MovieDetailController: UIViewController {
             circularProgreessBar.progressAnimation(duration: circularViewDuration)
         }
 
-        genres.text = concatenateGenres(detailMovie?.genres ?? [])
-        runtimeLabel.text = formatTime(minutes: detailMovie?.runtime ?? -0)
+        genres.text = viewModel.concatenateGenres(detailMovie?.genres ?? [])
+        runtimeLabel.text = viewModel.formatTime(minutes: detailMovie?.runtime ?? -0)
         titleLabel.text = movie?.title
+        
         if let posterPath = movie?.posterPath, let url = URL(string: baseURL + posterPath) {
             posterImageView.sd_setImage(with: url, placeholderImage: nil)
         } else {
             posterImageView.image = nil
-        }
-    }
-    
-    func concatenateGenres(_ genres: [Genre]) -> String {
-        let genreNames = genres.map { $0.name }
-        return genreNames.joined(separator: " | ")
-    }
-    
-    func formatTime(minutes: Int) -> String {
-        let hours = minutes / 60
-        let remainingMinutes = minutes % 60
-        
-        if hours == 0 {
-            return "\(remainingMinutes)m"
-        } else if remainingMinutes == 0 {
-            return "\(hours)h"
-        } else {
-            return "\(hours)h, \(remainingMinutes)m"
         }
     }
 }
