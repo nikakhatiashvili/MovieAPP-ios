@@ -110,7 +110,9 @@ class MovieDetailController: UIViewController {
     }()
     
     var circularViewDuration: TimeInterval = 1
-
+     var portraitConstraints: [NSLayoutConstraint] = []
+     var landscapeConstraints: [NSLayoutConstraint] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabVC.movie = movie
@@ -137,12 +139,55 @@ class MovieDetailController: UIViewController {
     }
     
     private func setupViewConstraints() {
-        NSLayoutConstraint.activate([
-            
+        NSLayoutConstraint.deactivate(portraitConstraints)
+        NSLayoutConstraint.deactivate(landscapeConstraints)
+        
+        let isLandscape = UIDevice.current.orientation.isLandscape
+
+        self.portraitConstraints = [
+            tabContainerView.topAnchor.constraint(equalTo: imageContainerView.bottomAnchor),
+            tabContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tabContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tabContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
             imageContainerView.topAnchor.constraint(equalTo: view.topAnchor),
             imageContainerView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            imageContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageContainerView.rightAnchor.constraint(equalTo: view.rightAnchor),
             imageContainerView.heightAnchor.constraint(equalToConstant: 400),
+            
+            posterImageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor, constant: 95),
+            posterImageView.leftAnchor.constraint(equalTo: imageContainerView.leftAnchor, constant: 20),
+            posterImageView.widthAnchor.constraint(equalToConstant: 200),
+            posterImageView.heightAnchor.constraint(equalToConstant: 250),
+        ]
+        
+        landscapeConstraints = [
+            imageContainerView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageContainerView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            imageContainerView.widthAnchor.constraint(equalToConstant: 400),
+            imageContainerView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor),
+            
+            posterImageView.topAnchor.constraint(equalTo: tabContainerView.topAnchor, constant: 20),
+            posterImageView.leftAnchor.constraint(equalTo: imageContainerView.leftAnchor, constant: 20),
+            posterImageView.widthAnchor.constraint(equalToConstant: 200),
+            posterImageView.heightAnchor.constraint(equalToConstant: 250),
+            
+            tabContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tabContainerView.leftAnchor.constraint(equalTo: imageContainerView.rightAnchor),
+            tabContainerView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tabContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ]
+        activateNormalConstraints()
+        NSLayoutConstraint.activate(isLandscape ? landscapeConstraints : portraitConstraints)
+        view.layoutIfNeeded()
+    }
+    
+    private func activateNormalConstraints(){
+        NSLayoutConstraint.activate([
+            tabVC.view.topAnchor.constraint(equalTo: tabContainerView.topAnchor),
+            tabVC.view.leftAnchor.constraint(equalTo: tabContainerView.leftAnchor),
+            tabVC.view.rightAnchor.constraint(equalTo: tabContainerView.rightAnchor),
+            tabVC.view.bottomAnchor.constraint(equalTo: tabContainerView.bottomAnchor),
             
             posterImageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor, constant: 95),
             posterImageView.leftAnchor.constraint(equalTo: imageContainerView.leftAnchor, constant: 20),
@@ -171,18 +216,14 @@ class MovieDetailController: UIViewController {
             voteAverage.topAnchor.constraint(equalTo: progressContainerView.topAnchor, constant: 10),
             voteAverage.bottomAnchor.constraint(equalTo: progressContainerView.bottomAnchor),
             voteAverage.leftAnchor.constraint(equalTo: progressContainerView.leftAnchor, constant: 25),
-            
-            tabContainerView.topAnchor.constraint(equalTo: imageContainerView.bottomAnchor),
-            tabContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tabContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tabContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            tabVC.view.topAnchor.constraint(equalTo: tabContainerView.topAnchor),
-            tabVC.view.leftAnchor.constraint(equalTo: tabContainerView.leftAnchor),
-            tabVC.view.rightAnchor.constraint(equalTo: tabContainerView.rightAnchor),
-            tabVC.view.bottomAnchor.constraint(equalTo: tabContainerView.bottomAnchor),
-            
         ])
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { [weak self] _ in
+            self?.setupViewConstraints()
+        }, completion: nil)
     }
     
     private func getDetails(){

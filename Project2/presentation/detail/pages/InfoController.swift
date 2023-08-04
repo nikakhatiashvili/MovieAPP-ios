@@ -143,6 +143,7 @@ class InfoController: UIViewController {
     }
     
     private func setupViewConstraints(){
+        
         NSLayoutConstraint.activate([
             releaseDateLabel.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 30),
             releaseDateLabel.topAnchor.constraint(equalTo: view.topAnchor,constant:  70),

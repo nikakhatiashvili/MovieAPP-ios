@@ -54,7 +54,6 @@ class ReviewItem: UITableViewCell {
             cardView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
             cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             cardView.widthAnchor.constraint(equalToConstant: contentView.frame.width),
-            cardView.heightAnchor.constraint(equalToConstant: 200),
             
             posterImageView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 15),
             posterImageView.leftAnchor.constraint(equalTo: cardView.leftAnchor, constant: 15),
@@ -67,8 +66,8 @@ class ReviewItem: UITableViewCell {
             
             content.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 20),
             content.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -20),
-            content.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 10)
-            
+            content.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 10),
+            content.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10)
         ])
     }
 
@@ -82,12 +81,12 @@ class ReviewItem: UITableViewCell {
         if let avatarPath = review?.authorDetails?.avatarPath {
             let modifiedAvatarPath = String(avatarPath.dropFirst())
             if let url = URL(string: modifiedAvatarPath) {
-                posterImageView.sd_setImage(with: url, placeholderImage: nil)
+                posterImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "default-avatar-icon-of-social-media-user-vector"))
             } else {
-                posterImageView.image = nil
+                posterImageView.image = UIImage(named: "default-avatar-icon-of-social-media-user-vector")
             }
         } else {
-            posterImageView.image = nil
+            posterImageView.image = UIImage(named: "default-avatar-icon-of-social-media-user-vector")
         }
     }
     
@@ -98,12 +97,12 @@ class ReviewItem: UITableViewCell {
         contentView.addSubview(posterImageView)
         contentView.addSubview(userName)
         contentView.addSubview(content)
-        setupImageViewConstraints()
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addViews()
+        setupImageViewConstraints()
     }
 
     required init?(coder aDecoder: NSCoder) {

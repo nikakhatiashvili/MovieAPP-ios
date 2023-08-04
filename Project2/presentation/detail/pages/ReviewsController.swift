@@ -21,6 +21,8 @@ class ReviewsController : UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.isPagingEnabled = true
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 200
         tableView.backgroundColor = .white
         return tableView
     }()
