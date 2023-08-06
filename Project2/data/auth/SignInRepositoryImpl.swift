@@ -12,7 +12,7 @@ class SignInRepositoryImpl: SignInRepository{
     
     @Injected private var authMediator:AuthenticationMediator
     
-    func signIn(email: String, pass: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func signIn(email: String, pass: String,completion: @escaping (Bool) -> Void) {
         authMediator.signIn(email: email, pass: pass, completion: completion)
     }
 

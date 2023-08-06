@@ -108,7 +108,7 @@ class InfoController: UIViewController {
         overview.textColor = .lightGray
         overview.textAlignment = .justified
         overview.lineBreakMode = .byWordWrapping
-        overview.text = "Ridiculus mus mauris vitae ultricies leo integer malesuada. Faucibus interdum posuere lorem ipsum dolor. Quam pellentesque nec nam aliquam. Pellentesque habitant morbi tristique senectus et netus et. Vel pharetra vel turpis nunc eget lorem dolor sed. Ut faucibus pulvinar elementum integer enim neque volutpat ac. Neque viverra justo nec ultrices dui. Aenean et tortor at risus viverra. Morbi tincidunt ornare massa eget egestas. Mattis molestie a iaculis at erat pellentesque. Eget sit amet tellus cras. Accumsan in nisl nisi scelerisque eu. Mauris in aliquam sem fringilla."
+        overview.text = ""
         overview.numberOfLines = 0
         overview.translatesAutoresizingMaskIntoConstraints = false
         overview.font = UIFont.boldSystemFont(ofSize: 13)
@@ -143,7 +143,6 @@ class InfoController: UIViewController {
     }
     
     private func setupViewConstraints(){
-        
         NSLayoutConstraint.activate([
             releaseDateLabel.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 30),
             releaseDateLabel.topAnchor.constraint(equalTo: view.topAnchor,constant:  70),
@@ -166,7 +165,6 @@ class InfoController: UIViewController {
             language.rightAnchor.constraint(equalTo: languageLabel.rightAnchor, constant: -20),
         ])
         
-        
         NSLayoutConstraint.activate([
             budgetLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
             budgetLabel.leftAnchor.constraint(equalTo: languageLabel.rightAnchor, constant: 50),
@@ -176,7 +174,6 @@ class InfoController: UIViewController {
             budget.rightAnchor.constraint(equalTo: budgetLabel.rightAnchor),
         ])
 
-        
         NSLayoutConstraint.activate([
             revenueLabel.topAnchor.constraint(equalTo: budget.bottomAnchor,constant: 3),
             revenueLabel.leftAnchor.constraint(equalTo: budgetLabel.leftAnchor),

@@ -27,19 +27,4 @@ struct Cast: Codable {
         case character
         case creditID = "credit_id"
     }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        adult = try container.decode(Bool.self, forKey: .adult)
-        gender = try container.decode(Int.self, forKey: .gender)
-        id = try container.decode(Int.self, forKey: .id)
-        name = try container.decode(String.self, forKey: .name)
-        originalName = try container.decode(String.self, forKey: .originalName)
-        popularity = try container.decode(Double.self, forKey: .popularity)
-        profilePath = try container.decodeIfPresent(String.self, forKey: .profilePath)
-        castID = try container.decodeIfPresent(Int.self, forKey: .castID)
-        character = try container.decodeIfPresent(String.self, forKey: .character)
-        creditID = try container.decode(String.self, forKey: .creditID)
-        
-    }
 }

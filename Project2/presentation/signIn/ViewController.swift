@@ -56,13 +56,10 @@ class ViewController: UIViewController {
         return passTextField
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.windows.first?.rootViewController = navigationController
-        let newScreenVC = HomeViewController()
-        let navigationController = UINavigationController(rootViewController: newScreenVC)
-        UIApplication.shared.windows.first?.rootViewController = navigationController
+
         self.setupUI()
         self.addTargets()
     }
@@ -81,7 +78,6 @@ class ViewController: UIViewController {
     }
     
     private func setupUI(){
-        
         self.view.backgroundColor = .white
         self.addViews()
         self.setLayout()
@@ -108,6 +104,7 @@ class ViewController: UIViewController {
             passTextField.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
             passTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30),
             passTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30),
+
         ])
     }
     
@@ -119,8 +116,7 @@ class ViewController: UIViewController {
     }
     
     @objc func didTapButton(){
-        signInViewModel.email = textField.text ?? ""
-        signInViewModel.password = passTextField.text ?? ""
+        signInViewModel.updateFields(email:textField.text ?? "", password: passTextField.text ?? "")
         signInViewModel.signIn()
     }
     

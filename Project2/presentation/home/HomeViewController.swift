@@ -36,9 +36,17 @@ class HomeViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tabBarItem.image = UIImage(named: "home-icon")
         addViews()
         setupUI()
         getMovies()
+        setupTableView()
+    }
+    
+    private func setupTableView(){
+        tableView.register(MovieItem.self, forCellReuseIdentifier: "MovieCell")
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func getMovies(){
@@ -63,16 +71,13 @@ class HomeViewController:UIViewController{
         NSLayoutConstraint.activate([
             moviesLabel.topAnchor.constraint(equalTo: self.view.topAnchor,constant: 100),
             moviesLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor,constant: 16),
-
+            
             tableView.topAnchor.constraint(equalTo: moviesLabel.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
-        tableView.register(MovieItem.self, forCellReuseIdentifier: "MovieCell")
-        tableView.dataSource = self
-        tableView.delegate = self
         self.view.backgroundColor = .white
     }
 }

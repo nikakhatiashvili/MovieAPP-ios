@@ -28,6 +28,14 @@ class ReviewItem: UITableViewCell {
         return username
     }()
     
+    private let createdBy: UILabel = {
+        let createdBy = UILabel()
+        createdBy.textColor = .white
+        createdBy.translatesAutoresizingMaskIntoConstraints = false
+        createdBy.font = UIFont.boldSystemFont(ofSize: 14)
+        return createdBy
+    }()
+    
     private let content: UILabel = {
         let content = UILabel()
         content.textColor = .white
@@ -64,36 +72,68 @@ class ReviewItem: UITableViewCell {
             userName.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 20),
             userName.rightAnchor.constraint(lessThanOrEqualTo: cardView.rightAnchor, constant: -15),
             
+            
+            createdBy.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 5),
+            createdBy.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 20),
+            createdBy.rightAnchor.constraint(lessThanOrEqualTo: cardView.rightAnchor, constant: -15),
+            
             content.leftAnchor.constraint(equalTo: posterImageView.rightAnchor, constant: 20),
             content.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -20),
-            content.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 10),
+            content.topAnchor.constraint(equalTo: createdBy.bottomAnchor, constant: 10),
             content.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10)
         ])
     }
 
     func configure(with review: Review?) {
         content.text = review?.content ?? ""
-        if review?.authorDetails?.username != nil {
-            self.userName.text = review?.authorDetails?.username ?? ""
+        let username = review?.authorDetails?.username
+        if username != nil {
+            self.userName.text = username ?? ""
         } else if review?.authorDetails?.name != nil {
             self.userName.text = review?.authorDetails?.name ?? ""
         }
-        if let avatarPath = review?.authorDetails?.avatarPath {
+        createdBy.text = "Written by \(review?.authorDetails?.username ?? "") on \(formatDate(review?.createdAt) ?? "")"
+        setImage(path: review?.authorDetails?.avatarPath)
+    }
+    
+    func setImage(path:String?){
+        let image = UIImage(named: "default-avatar-icon-of-social-media-user-vector")
+        if let avatarPath = path {
             let modifiedAvatarPath = String(avatarPath.dropFirst())
             if let url = URL(string: modifiedAvatarPath) {
-                posterImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "default-avatar-icon-of-social-media-user-vector"))
+                posterImageView.sd_setImage(with: url, placeholderImage: image)
             } else {
-                posterImageView.image = UIImage(named: "default-avatar-icon-of-social-media-user-vector")
+                posterImageView.image = image
             }
         } else {
-            posterImageView.image = UIImage(named: "default-avatar-icon-of-social-media-user-vector")
+            posterImageView.image = image
         }
     }
+    
+    func formatDate(_ dateString: String?) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if dateString != nil {
+            if let date = dateFormatter.date(from: dateString ?? "") {
+                dateFormatter.dateFormat = "MMMM d, yyyy"
+                dateFormatter.locale = Locale(identifier: "en_US") // Set the locale to English (United States)
+                let formattedDate = dateFormatter.string(from: date)
+                return formattedDate
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
+    }
+
     
     private func addViews() {
         contentView.backgroundColor = .white
         cardView.backgroundColor = .lightGray
         contentView.addSubview(cardView)
+        contentView.addSubview(createdBy)
         contentView.addSubview(posterImageView)
         contentView.addSubview(userName)
         contentView.addSubview(content)

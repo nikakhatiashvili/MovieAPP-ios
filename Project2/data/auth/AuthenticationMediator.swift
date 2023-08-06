@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AuthenticationMediator {
-    func signIn(email: String, pass: String, completion: @escaping (Result<String, Error>) -> Void)
+    func signIn(email: String, pass: String, completion: @escaping (Bool) -> Void)
     
     func signUp(email:String, pass:String, completion: @escaping (Result<String, Error>) -> Void)
     

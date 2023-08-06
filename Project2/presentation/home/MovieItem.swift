@@ -18,7 +18,6 @@ class MovieItem: UITableViewCell {
         return imageView
     }()
 
-    
     private let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -60,15 +59,18 @@ class MovieItem: UITableViewCell {
         } else {
             posterImageView.image = nil
         }
-
     }
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
+    func manageViews(){
         contentView.addSubview(posterImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
         setupImageViewConstraints()
+    }
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        manageViews()
     }
 
     required init?(coder aDecoder: NSCoder) {

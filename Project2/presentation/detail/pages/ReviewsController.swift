@@ -27,7 +27,6 @@ class ReviewsController : UIViewController {
         return tableView
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white

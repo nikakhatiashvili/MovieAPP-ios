@@ -37,7 +37,13 @@ class CastViewController: UIViewController {
         self.view.addSubview(collectionView)
         getMovieCast()
         setupView()
-        
+        setupCollectionView()
+    }
+    
+    private func setupCollectionView(){
+        collectionView.register(CastItem.self, forCellWithReuseIdentifier: "CastCell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     private func setupView(){
@@ -47,10 +53,6 @@ class CastViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
             collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 20)
         ])
-        
-        collectionView.register(CastItem.self, forCellWithReuseIdentifier: "CastCell")
-        collectionView.dataSource = self
-        collectionView.delegate = self
     }
     
     private func getMovieCast(){
@@ -65,6 +67,7 @@ class CastViewController: UIViewController {
         }
     }
 }
+
 extension CastViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cast.count
@@ -72,8 +75,10 @@ extension CastViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCell", for: indexPath) as! CastItem
-        let movie = cast[indexPath.row]
+        let movie = cast[indexPath.row * 2]
         cell.configure(with: movie)
+        let index = indexPath.row * 2
+        
         return cell
     }
     

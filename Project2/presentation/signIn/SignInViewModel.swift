@@ -12,30 +12,30 @@ class SignInViewModel {
 
     @Injected private var signInUseCase:SignInUseCase
     
-     var email: String = ""
-     var password: String = ""
+    private var email: String = ""
+    private var password: String = ""
     
     func signIn(){
-        let emailValidationResult = isValidEmail(email)
-        if !emailValidationResult.isValid {
-            if let errorMessage = emailValidationResult.errorMessage {
-                showAlert(title: "Invalid Email", message: errorMessage)
-            }
+        if email.isEmpty {
             return
         }
         if password.isEmpty {
             return
         }
-        signInUseCase.signIn(email: email, password: password){ [self] result in
-            switch result {
-            case .success(_):
+        signInUseCase.signIn(email: email, password: password) { success in
+            if success {
                 NotificationCenter.default.post(
                     name: Notification.Name("SignInSuccessNotification"), object: nil)
-                
-            case .failure(let error):
-                self.showAlert(title: "Sign-up error:", message: "\(String(describing: error.localizedDescription))")
+            } else {
+                self.showAlert(title: "Sign-in error:", message: "Sign-in failed.")
             }
         }
+
+    }
+    
+    func updateFields(email:String, password:String){
+        self.email = email
+        self.password = password
     }
     
     private func isValidEmail(_ email: String) -> ValidationResult {
