@@ -20,7 +20,6 @@ class CastItem: UICollectionViewCell {
         return imageView
     }()
     
-    
     private let originalName: UILabel = {
         let originalName = UILabel()
         originalName.textColor = .black
@@ -33,7 +32,6 @@ class CastItem: UICollectionViewCell {
         let castName = UILabel()
         castName.textColor = .lightGray
         castName.translatesAutoresizingMaskIntoConstraints = false
-        
         castName.font = UIFont.boldSystemFont(ofSize: 13)
         return castName
     }()

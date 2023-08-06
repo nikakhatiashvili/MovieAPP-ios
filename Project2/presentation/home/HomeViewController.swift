@@ -59,7 +59,6 @@ class HomeViewController:UIViewController{
     }
 
     @objc private func logoutLabelTapped() {
-        print("tapped label")
         viewModel.logout(){
             success in
             if success {
@@ -68,8 +67,6 @@ class HomeViewController:UIViewController{
                 let newViewController = ViewController()
                 let navigationController = UINavigationController(rootViewController: newViewController)
                 UIApplication.shared.windows.first?.rootViewController = navigationController
-            } else {
-                print("log out failed")
             }
         }
     }

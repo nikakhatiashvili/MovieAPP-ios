@@ -13,7 +13,6 @@ class NetworkAuthMediator: AuthenticationMediator {
     
     @Injected private var apiService: APIService
 
-
     func getToken(completion: @escaping (Result<AuthTokenResponse, Error>) -> Void) {
         apiService.getToken(completion: completion)
     }
@@ -24,5 +23,9 @@ class NetworkAuthMediator: AuthenticationMediator {
 
     func createSession(requestToken: String, completion: @escaping (Result<SessionResponse, Error>) -> Void) {
         apiService.createSession(requestToken: requestToken, completion: completion)
+    }
+    
+    func deletSession(completion: @escaping (Result<SessionDeleteResponse, Error>) -> Void) {
+        apiService.deleteSession(completion: completion)
     }
 }

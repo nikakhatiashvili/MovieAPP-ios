@@ -14,7 +14,6 @@ extension Resolver: ResolverRegistering {
         registerAuth()
         registerNetwork()
         registerSignIn()
-        
         registerMovie()
     }
     
@@ -22,7 +21,11 @@ extension Resolver: ResolverRegistering {
         Resolver.register{APIService()}.scope(.graph)
         Resolver.register{APIURLBuilder()}.scope(.graph)
         Resolver.register{NetworkAuthMediator()}.implements(AuthenticationMediator.self)
+        
+        Resolver.register{AuthUseCase()}.scope(.graph)
+        Resolver.register{AuthRepositoryImpl()}.implements(AuthRepository.self)
     }
+    
     public static func registerNetwork() {
         Resolver.register{NetworkMediator()}.implements(MovieMediator.self)
     }
@@ -33,11 +36,7 @@ extension Resolver: ResolverRegistering {
         Resolver.register{SignInUseCase(signInRepository: Resolver.resolve())}
         Resolver.register{SignInRepositoryImpl()}.implements(SignInRepository.self)
     }
-    
-    public static func registerSignUp(){
-
-    }
-    
+        
     public static func registerMovie(){
         Resolver.register{HomeViewModel()}.scope(.graph)
         Resolver.register{MovieUseCase()}.scope(.graph)

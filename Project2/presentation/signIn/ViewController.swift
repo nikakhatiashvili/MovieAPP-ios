@@ -69,14 +69,6 @@ class ViewController: UIViewController {
     private func addTargets(){
         self.button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(tapSignUpButton), for: .touchUpInside)
-        NotificationCenter.default.addObserver(self,
-                    selector: #selector(handleSignUpSuccess),
-                    name: Notification.Name("SignUpSuccessNotification"),
-                    object: nil)
-        NotificationCenter.default.addObserver(self,
-                    selector: #selector(handleSignInSuccess),
-                    name: Notification.Name("SignInSuccessNotification"),
-                    object:nil)
     }
     
     private func checkSessionId(){
@@ -126,15 +118,17 @@ class ViewController: UIViewController {
     
     @objc func didTapButton(){
         signInViewModel.updateFields(email:textField.text ?? "", password: passTextField.text ?? "")
-        signInViewModel.signIn()
+        signInViewModel.signIn(){ result in
+            switch result {
+            case .success(_):
+                self.handleSignInSuccess()
+            case .failure(_): break
+            }
+        }
     }
     
     @objc func tapSignUpButton(){
         navigateToHome()
-    }
-    
-    @objc func handleSignUpSuccess() {
-        navigationController?.popViewController(animated: true)
     }
     
     @objc func handleSignInSuccess() {

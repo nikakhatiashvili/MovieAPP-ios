@@ -21,4 +21,8 @@ class APIURLBuilder {
     func createSessionEndpoint() -> String {
         return "https://api.themoviedb.org/3/authentication/session/new?api_key=\(apiKey)"
     }
+    
+    func deleteSessionEndpoint() -> String {
+        return "https://api.themoviedb.org/3/authentication/session?api_key=\(apiKey)"
+    }
 }

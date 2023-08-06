@@ -9,6 +9,7 @@ import Foundation
 import Resolver
 
 class SignInRepositoryImpl: SignInRepository {
+
     @Injected private var authMediator: AuthenticationMediator
 
     func signIn(email: String, pass: String, completion: @escaping (Result<String, Error>) -> Void) {

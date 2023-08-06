@@ -61,7 +61,6 @@ class ReviewsController : UIViewController {
             case .success(let reviewResult):
                 self.reviews = reviewResult.results ?? []
                 self.tableView.reloadData()
-                print(self.reviews)
             case .failure(let error):
                 print("Error fetching movie details: \(error)")
             }

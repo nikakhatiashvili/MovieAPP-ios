@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 protocol SignInRepository {
     
     func signIn(email: String, pass: String, completion: @escaping (Result<String, Error>) -> Void)

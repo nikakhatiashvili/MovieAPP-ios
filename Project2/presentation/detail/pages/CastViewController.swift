@@ -61,8 +61,7 @@ class CastViewController: UIViewController {
             case .success(let movieResult):
                 self.cast = movieResult.cast
                 self.collectionView.reloadData()
-            case .failure(let error):
-                print("Error fetching movie details: \(error)")
+            case .failure(_): break
             }
         }
     }

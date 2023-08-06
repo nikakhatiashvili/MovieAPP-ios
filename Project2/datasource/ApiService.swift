@@ -24,6 +24,13 @@ class APIService {
         self.requestData(url: validateUrl, method: .post, parameters: params, completion: completion)
     }
     
+    func deleteSession(completion: @escaping (Result<SessionDeleteResponse, Error>) -> Void) {
+        let validateUrl = urlBuilder.deleteSessionEndpoint()
+        let sessionId = UserDefaults.standard.string(forKey: "sessionId") ?? ""
+        let params: Parameters = ["session_id": sessionId]
+        self.requestData(url: validateUrl, method: .delete, parameters: params, completion: completion)
+    }
+    
     func createSession(requestToken: String, completion: @escaping (Result<SessionResponse, Error>) -> Void) {
         let createSessionUrl = urlBuilder.createSessionEndpoint()
         let sessionParams: Parameters = ["request_token": requestToken]

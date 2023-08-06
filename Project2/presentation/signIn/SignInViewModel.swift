@@ -15,7 +15,7 @@ class SignInViewModel {
     private var email: String = ""
     private var password: String = ""
     
-    func signIn(){
+    func signIn(completion: @escaping (Result<String, Error>) -> Void){
         if email.isEmpty {
             return
         }
@@ -25,10 +25,10 @@ class SignInViewModel {
         signInUseCase.signIn(email: email, password: password) { result in
             switch result {
             case .success(_):
-                NotificationCenter.default.post(
-                    name: Notification.Name("SignInSuccessNotification"), object: nil)
+                completion(.success("successfully signed in"))
             case .failure(let error):
                 self.showAlert(title: "Sign-in error:", message: error.localizedDescription)
+                completion(.failure(error))
             }
         }
 

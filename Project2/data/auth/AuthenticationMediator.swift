@@ -14,4 +14,6 @@ protocol AuthenticationMediator {
     func validateTokenWithLogin(email: String, pass: String, requestToken: String, completion: @escaping (Result<LoginResponse, Error>) -> Void)
     
     func createSession(requestToken: String, completion: @escaping (Result<SessionResponse, Error>) -> Void)
+    
+    func deletSession(completion: @escaping (Result<SessionDeleteResponse, Error>) -> Void)
 }

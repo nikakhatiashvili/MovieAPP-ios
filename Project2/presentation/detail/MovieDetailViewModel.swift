@@ -24,8 +24,6 @@ class MovieDetailViewModel{
         movieDetailUsecase.getMovieReviews(id: id, completion: completion)
     }
     
-    
-    
     func formatTime(minutes: Int) -> String {
         let hours = minutes / 60
         let remainingMinutes = minutes % 60

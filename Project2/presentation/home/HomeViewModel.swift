@@ -12,7 +12,9 @@ class HomeViewModel:ObservableObject {
     
     @Injected private var movieUseCase:MovieUseCase
     
-    @Published var movies: [Movie] = []
+    @Injected private var authUseCase:AuthUseCase
+    
+    var movies: [Movie] = []
     
     func getPopularMovies(completion: @escaping (Result<MovieResult, Error>) -> Void) {
         movieUseCase.getPopularMovies() { [self] result in
@@ -29,6 +31,6 @@ class HomeViewModel:ObservableObject {
     }
     
     func logout(completion: @escaping (Bool) -> Void){
-        movieUseCase.logout(completion: completion)
+        authUseCase.logout(completion: completion)
     }
 }

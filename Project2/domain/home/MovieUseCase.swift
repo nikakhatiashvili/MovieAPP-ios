@@ -17,8 +17,4 @@ class MovieUseCase {
             result in completion(result)
         }
     }
-    
-    public func logout(completion: @escaping (Bool) -> Void){
-        movieRepository.logout(completion: completion)
-    }
 }

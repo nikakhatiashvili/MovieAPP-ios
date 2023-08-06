@@ -10,6 +10,4 @@ import Foundation
 protocol MovieRepository {
     
     func getPopularMovies(completion: @escaping (Result<MovieResult, Error>) -> Void)
-    
-    func logout(completion: @escaping (Bool) -> Void)
 }
