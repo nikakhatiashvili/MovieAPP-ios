@@ -27,4 +27,8 @@ class HomeViewModel:ObservableObject {
             }
         }
     }
+    
+    func logout(completion: @escaping (Bool) -> Void){
+        movieUseCase.logout(completion: completion)
+    }
 }

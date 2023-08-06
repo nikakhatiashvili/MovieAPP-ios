@@ -14,12 +14,14 @@ extension Resolver: ResolverRegistering {
         registerAuth()
         registerNetwork()
         registerSignIn()
-        registerSignUp()
+        
         registerMovie()
     }
     
     public static func registerAuth() {
-        Resolver.register{FirebaseAuthMediator()}.implements(AuthenticationMediator.self)
+        Resolver.register{APIService()}.scope(.graph)
+        Resolver.register{APIURLBuilder()}.scope(.graph)
+        Resolver.register{NetworkAuthMediator()}.implements(AuthenticationMediator.self)
     }
     public static func registerNetwork() {
         Resolver.register{NetworkMediator()}.implements(MovieMediator.self)
@@ -33,10 +35,7 @@ extension Resolver: ResolverRegistering {
     }
     
     public static func registerSignUp(){
-        Resolver.register{SignUpUseCase()}.scope(.graph)
-        Resolver.register { SignUpViewModel() }.scope(.graph)
-        Resolver.register { SignUpRepositoryImpl() }.implements(SignUpRepository.self)
-        Resolver.register { SignUpUseCase(signUpRepository: Resolver.resolve()) }
+
     }
     
     public static func registerMovie(){

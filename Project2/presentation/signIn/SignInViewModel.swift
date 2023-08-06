@@ -22,12 +22,13 @@ class SignInViewModel {
         if password.isEmpty {
             return
         }
-        signInUseCase.signIn(email: email, password: password) { success in
-            if success {
+        signInUseCase.signIn(email: email, password: password) { result in
+            switch result {
+            case .success(_):
                 NotificationCenter.default.post(
                     name: Notification.Name("SignInSuccessNotification"), object: nil)
-            } else {
-                self.showAlert(title: "Sign-in error:", message: "Sign-in failed.")
+            case .failure(let error):
+                self.showAlert(title: "Sign-in error:", message: error.localizedDescription)
             }
         }
 

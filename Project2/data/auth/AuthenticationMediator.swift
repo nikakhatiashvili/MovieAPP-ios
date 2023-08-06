@@ -8,8 +8,10 @@
 import Foundation
 
 protocol AuthenticationMediator {
-    func signIn(email: String, pass: String, completion: @escaping (Bool) -> Void)
+
+    func getToken(completion: @escaping (Result<AuthTokenResponse, Error>) -> Void)
     
-    func signUp(email:String, pass:String, completion: @escaping (Result<String, Error>) -> Void)
+    func validateTokenWithLogin(email: String, pass: String, requestToken: String, completion: @escaping (Result<LoginResponse, Error>) -> Void)
     
+    func createSession(requestToken: String, completion: @escaping (Result<SessionResponse, Error>) -> Void)
 }

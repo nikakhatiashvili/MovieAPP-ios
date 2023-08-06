@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         let  signUpButton = UIButton()
         signUpButton.backgroundColor = .systemBlue
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        signUpButton.setTitle("Sign Up", for: .normal)
+        signUpButton.setTitle("Go Guest Mode", for: .normal)
         signUpButton.layer.cornerRadius = 10
         return signUpButton
     }()
@@ -39,7 +39,8 @@ class ViewController: UIViewController {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 20)
         ]
-        textField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: attributes)
+        textField.autocapitalizationType = .none
+        textField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: attributes)
         textField.borderStyle = .roundedRect
         return textField
     }()
@@ -50,6 +51,7 @@ class ViewController: UIViewController {
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 20)
         ]
+        passTextField.autocapitalizationType = .none
         passTextField.translatesAutoresizingMaskIntoConstraints = false
         passTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: attributes)
         passTextField.borderStyle = .roundedRect
@@ -59,7 +61,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.windows.first?.rootViewController = navigationController
-
+        self.checkSessionId()
         self.setupUI()
         self.addTargets()
     }
@@ -75,6 +77,13 @@ class ViewController: UIViewController {
                     selector: #selector(handleSignInSuccess),
                     name: Notification.Name("SignInSuccessNotification"),
                     object:nil)
+    }
+    
+    private func checkSessionId(){
+        if let sessionId = UserDefaults.standard.string(forKey: "sessionId") {
+            print("SessionId exists: \(sessionId)")
+            self.handleSignInSuccess()
+        }
     }
     
     private func setupUI(){
@@ -121,8 +130,7 @@ class ViewController: UIViewController {
     }
     
     @objc func tapSignUpButton(){
-        let vc = SignUpViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigateToHome()
     }
     
     @objc func handleSignUpSuccess() {
@@ -130,6 +138,10 @@ class ViewController: UIViewController {
     }
     
     @objc func handleSignInSuccess() {
+        navigateToHome()
+    }
+    
+    private func navigateToHome(){
         let newScreenVC = HomeViewController()
         let navigationController = UINavigationController(rootViewController: newScreenVC)
         UIApplication.shared.windows.first?.rootViewController = navigationController

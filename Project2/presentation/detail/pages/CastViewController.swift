@@ -75,10 +75,8 @@ extension CastViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCell", for: indexPath) as! CastItem
-        let movie = cast[indexPath.row * 2]
+        let movie = cast[indexPath.row]
         cell.configure(with: movie)
-        let index = indexPath.row * 2
-        
         return cell
     }
     

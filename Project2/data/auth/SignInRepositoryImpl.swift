@@ -8,12 +8,41 @@
 import Foundation
 import Resolver
 
-class SignInRepositoryImpl: SignInRepository{
-    
-    @Injected private var authMediator:AuthenticationMediator
-    
-    func signIn(email: String, pass: String,completion: @escaping (Bool) -> Void) {
-        authMediator.signIn(email: email, pass: pass, completion: completion)
-    }
+class SignInRepositoryImpl: SignInRepository {
+    @Injected private var authMediator: AuthenticationMediator
 
+    func signIn(email: String, pass: String, completion: @escaping (Result<String, Error>) -> Void) {
+        authMediator.getToken { result in
+            switch result {
+            case .success(let authTokenResponse):
+                self.authMediator.validateTokenWithLogin(email: email, pass: pass, requestToken: authTokenResponse.requestToken) { result in
+                    switch result {
+                    case .success(let loginResponse):
+                        self.authMediator.createSession(requestToken: loginResponse.requestToken) { result in
+                            switch result {
+                            case .success(let sessionResponse):
+                                self.saveSessionId(sessionId: sessionResponse.sessionId)
+                                completion(.success(sessionResponse.sessionId))
+                            case .failure(let error):
+                                print("Error creating session with login: \(error)")
+                                completion(.failure(error))
+                            }
+                        }
+                    case .failure(let error):
+                        print("Error validating token with login: \(error)")
+                        completion(.failure(error))
+                    }
+                }
+            case .failure(let error):
+                print("Error fetching authentication token: \(error)")
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    private func saveSessionId(sessionId: String) {
+        UserDefaults.standard.set(sessionId, forKey: "sessionId")
+        UserDefaults.standard.synchronize()
+    }
+    
 }

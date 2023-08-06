@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		CE0515922A71432000680219 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0515912A71432000680219 /* Movie.swift */; };
-		CE0515942A71434400680219 /* OriginalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0515932A71434400680219 /* OriginalLanguage.swift */; };
 		CE388ECC2A71496C00EE56B3 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE388ECB2A71496C00EE56B3 /* MovieResult.swift */; };
 		CE388ECE2A71503A00EE56B3 /* MovieItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE388ECD2A71503A00EE56B3 /* MovieItem.swift */; };
 		CE388ED12A71604A00EE56B3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CE388ED02A71604A00EE56B3 /* SDWebImage */; };
 		CE48FB282A6AC161005AECF4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB272A6AC161005AECF4 /* HomeViewController.swift */; };
 		CE48FB682A6FE648005AECF4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE48FB672A6FE648005AECF4 /* Alamofire */; };
 		CE48FB6A2A6FE78A005AECF4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */; };
-		CE48FB6C2A6FF175005AECF4 /* FirebaseAuthMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */; };
+		CE48FB6C2A6FF175005AECF4 /* NetworkAuthMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB6B2A6FF175005AECF4 /* NetworkAuthMediator.swift */; };
 		CE48FB6E2A6FF1B8005AECF4 /* AuthenticationMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */; };
 		CE5040052A78FF0500E27D77 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5040042A78FF0500E27D77 /* InfoController.swift */; };
 		CE5040082A78FF8100E27D77 /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5040072A78FF8100E27D77 /* ReviewsController.swift */; };
@@ -54,14 +53,21 @@
 		CECAE8622A692D340072EF80 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = CECAE8612A692D340072EF80 /* FirebaseAuthCombine-Community */; };
 		CECAE8672A69463A0072EF80 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = CECAE8662A69463A0072EF80 /* Resolver */; };
 		CECAE86E2A6947920072EF80 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE86D2A6947920072EF80 /* AppDelegate+Injection.swift */; };
-		CECAE8702A6969B90072EF80 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE86F2A6969B90072EF80 /* SignUpUseCase.swift */; };
-		CECAE8722A6972460072EF80 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8712A6972460072EF80 /* SignUpRepository.swift */; };
-		CECAE8742A6973050072EF80 /* SignUpRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8732A6973050072EF80 /* SignUpRepositoryImpl.swift */; };
 		CECAE8762A6980350072EF80 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8752A6980350072EF80 /* Result.swift */; };
 		CECAE8782A6996870072EF80 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8772A6996870072EF80 /* SignInViewModel.swift */; };
 		CECAE87A2A6996E80072EF80 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8792A6996E80072EF80 /* SignInUseCase.swift */; };
 		CECAE87C2A69974B0072EF80 /* SignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE87B2A69974B0072EF80 /* SignInRepository.swift */; };
 		CECAE8832A6997E80072EF80 /* SignInRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAE8822A6997E80072EF80 /* SignInRepositoryImpl.swift */; };
+		CEE300B42A7FF6DC000E6866 /* AuthTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE300B32A7FF6DC000E6866 /* AuthTokenResponse.swift */; };
+		CEE300B62A7FF6EB000E6866 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE300B52A7FF6EB000E6866 /* LoginResponse.swift */; };
+		CEE300B82A7FF700000E6866 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE300B72A7FF700000E6866 /* SessionResponse.swift */; };
+		CEE300BB2A7FF85D000E6866 /* APIURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE300BA2A7FF85D000E6866 /* APIURLBuilder.swift */; };
+		CEE300BF2A801A52000E6866 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE300BE2A801A52000E6866 /* ApiService.swift */; };
+		CEEFAE742A7BB52A004E404E /* ReviewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFAE732A7BB52A004E404E /* ReviewItem.swift */; };
+		CEEFAE762A7BC707004E404E /* AuthorDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFAE752A7BC707004E404E /* AuthorDetails.swift */; };
+		CEEFAE782A7BC727004E404E /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFAE772A7BC727004E404E /* Review.swift */; };
+		CEEFAE7A2A7BC770004E404E /* ReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFAE792A7BC770004E404E /* ReviewResult.swift */; };
+		CEEFAE7D2A7D2406004E404E /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFAE7C2A7D2406004E404E /* FavoritesViewController.swift */; };
 		CEF39C202A77E6BF00F91A72 /* DetailMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF39C1F2A77E6BF00F91A72 /* DetailMovie.swift */; };
 		CEF39C222A77E72C00F91A72 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF39C212A77E72C00F91A72 /* Genre.swift */; };
 /* End PBXBuildFile section */
@@ -85,12 +91,11 @@
 
 /* Begin PBXFileReference section */
 		CE0515912A71432000680219 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		CE0515932A71434400680219 /* OriginalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalLanguage.swift; sourceTree = "<group>"; };
 		CE388ECB2A71496C00EE56B3 /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
 		CE388ECD2A71503A00EE56B3 /* MovieItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItem.swift; sourceTree = "<group>"; };
 		CE48FB272A6AC161005AECF4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE48FB692A6FE78A005AECF4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthMediator.swift; sourceTree = "<group>"; };
+		CE48FB6B2A6FF175005AECF4 /* NetworkAuthMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAuthMediator.swift; sourceTree = "<group>"; };
 		CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMediator.swift; sourceTree = "<group>"; };
 		CE5040042A78FF0500E27D77 /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		CE5040072A78FF8100E27D77 /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
@@ -128,14 +133,21 @@
 		CE68E97F2A658ABE00811F24 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		CE85CE9E2A692768003FCD98 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CECAE86D2A6947920072EF80 /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
-		CECAE86F2A6969B90072EF80 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
-		CECAE8712A6972460072EF80 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
-		CECAE8732A6973050072EF80 /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
 		CECAE8752A6980350072EF80 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		CECAE8772A6996870072EF80 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		CECAE8792A6996E80072EF80 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
 		CECAE87B2A69974B0072EF80 /* SignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepository.swift; sourceTree = "<group>"; };
 		CECAE8822A6997E80072EF80 /* SignInRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepositoryImpl.swift; sourceTree = "<group>"; };
+		CEE300B32A7FF6DC000E6866 /* AuthTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenResponse.swift; sourceTree = "<group>"; };
+		CEE300B52A7FF6EB000E6866 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		CEE300B72A7FF700000E6866 /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
+		CEE300BA2A7FF85D000E6866 /* APIURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIURLBuilder.swift; sourceTree = "<group>"; };
+		CEE300BE2A801A52000E6866 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		CEEFAE732A7BB52A004E404E /* ReviewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewItem.swift; sourceTree = "<group>"; };
+		CEEFAE752A7BC707004E404E /* AuthorDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorDetails.swift; sourceTree = "<group>"; };
+		CEEFAE772A7BC727004E404E /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		CEEFAE792A7BC770004E404E /* ReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewResult.swift; sourceTree = "<group>"; };
+		CEEFAE7C2A7D2406004E404E /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		CEF39C1F2A77E6BF00F91A72 /* DetailMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovie.swift; sourceTree = "<group>"; };
 		CEF39C212A77E72C00F91A72 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +211,7 @@
 				CE5040072A78FF8100E27D77 /* ReviewsController.swift */,
 				CE50400C2A79122900E27D77 /* TabViewController.swift */,
 				CE50400E2A7925D400E27D77 /* CastViewController.swift */,
+				CEEFAE732A7BB52A004E404E /* ReviewItem.swift */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -226,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				CE388ECB2A71496C00EE56B3 /* MovieResult.swift */,
-				CE0515932A71434400680219 /* OriginalLanguage.swift */,
 				CE0515912A71432000680219 /* Movie.swift */,
 			);
 			path = model;
@@ -235,10 +247,10 @@
 		CE5E241E2A74535800FB8972 /* auth */ = {
 			isa = PBXGroup;
 			children = (
+				CEE300B22A7FF6C8000E6866 /* model */,
 				CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */,
-				CE48FB6B2A6FF175005AECF4 /* FirebaseAuthMediator.swift */,
+				CE48FB6B2A6FF175005AECF4 /* NetworkAuthMediator.swift */,
 				CECAE8822A6997E80072EF80 /* SignInRepositoryImpl.swift */,
-				CECAE8732A6973050072EF80 /* SignUpRepositoryImpl.swift */,
 			);
 			path = auth;
 			sourceTree = "<group>";
@@ -246,9 +258,11 @@
 		CE5E241F2A74536000FB8972 /* movies */ = {
 			isa = PBXGroup;
 			children = (
+				CEE300BA2A7FF85D000E6866 /* APIURLBuilder.swift */,
 				CE5E24242A7454C500FB8972 /* MovieMediator.swift */,
 				CE5E24202A74536F00FB8972 /* MovieRepositoryImpl.swift */,
 				CE5E24222A7453FF00FB8972 /* NetworkMediator.swift */,
+				CEE300BE2A801A52000E6866 /* ApiService.swift */,
 			);
 			path = movies;
 			sourceTree = "<group>";
@@ -278,6 +292,9 @@
 				CE5E24362A757B4100FB8972 /* Cast.swift */,
 				CEF39C1F2A77E6BF00F91A72 /* DetailMovie.swift */,
 				CEF39C212A77E72C00F91A72 /* Genre.swift */,
+				CEEFAE752A7BC707004E404E /* AuthorDetails.swift */,
+				CEEFAE772A7BC727004E404E /* Review.swift */,
+				CEEFAE792A7BC770004E404E /* ReviewResult.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -375,6 +392,7 @@
 		CECAE8692A69472B0072EF80 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CEEFAE7B2A7D23F9004E404E /* favorites */,
 				CE5040172A7B0BF000E27D77 /* common */,
 				CE5E24182A744E5D00FB8972 /* detail */,
 				CE48FB652A6FDB13005AECF4 /* home */,
@@ -390,7 +408,6 @@
 				CE5E242A2A7575A500FB8972 /* details */,
 				CE0515902A71430B00680219 /* home */,
 				CECAE8812A6997C60072EF80 /* common */,
-				CECAE8802A6997B20072EF80 /* signUp */,
 				CECAE87F2A6997AC0072EF80 /* signIn */,
 			);
 			path = domain;
@@ -415,21 +432,30 @@
 			path = signIn;
 			sourceTree = "<group>";
 		};
-		CECAE8802A6997B20072EF80 /* signUp */ = {
-			isa = PBXGroup;
-			children = (
-				CECAE8712A6972460072EF80 /* SignUpRepository.swift */,
-				CECAE86F2A6969B90072EF80 /* SignUpUseCase.swift */,
-			);
-			path = signUp;
-			sourceTree = "<group>";
-		};
 		CECAE8812A6997C60072EF80 /* common */ = {
 			isa = PBXGroup;
 			children = (
 				CECAE8752A6980350072EF80 /* Result.swift */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		CEE300B22A7FF6C8000E6866 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CEE300B32A7FF6DC000E6866 /* AuthTokenResponse.swift */,
+				CEE300B52A7FF6EB000E6866 /* LoginResponse.swift */,
+				CEE300B72A7FF700000E6866 /* SessionResponse.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		CEEFAE7B2A7D23F9004E404E /* favorites */ = {
+			isa = PBXGroup;
+			children = (
+				CEEFAE7C2A7D2406004E404E /* FavoritesViewController.swift */,
+			);
+			path = favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -583,33 +609,37 @@
 				CECAE86E2A6947920072EF80 /* AppDelegate+Injection.swift in Sources */,
 				CE5E24322A75782500FB8972 /* MovieDetailRepositoryImpl.swift in Sources */,
 				CE48FB6A2A6FE78A005AECF4 /* HomeViewModel.swift in Sources */,
-				CECAE8722A6972460072EF80 /* SignUpRepository.swift in Sources */,
+				CEE300B82A7FF700000E6866 /* SessionResponse.swift in Sources */,
 				CE50400F2A7925D400E27D77 /* CastViewController.swift in Sources */,
 				CE5E242D2A7575C900FB8972 /* MovieDetailsUseCase.swift in Sources */,
 				CE68E94F2A64096000811F24 /* ViewController.swift in Sources */,
 				CE48FB282A6AC161005AECF4 /* HomeViewController.swift in Sources */,
 				CE388ECC2A71496C00EE56B3 /* MovieResult.swift in Sources */,
+				CEE300BB2A7FF85D000E6866 /* APIURLBuilder.swift in Sources */,
+				CEEFAE762A7BC707004E404E /* AuthorDetails.swift in Sources */,
+				CEEFAE7D2A7D2406004E404E /* FavoritesViewController.swift in Sources */,
 				CE68E94B2A64096000811F24 /* AppDelegate.swift in Sources */,
 				CEF39C222A77E72C00F91A72 /* Genre.swift in Sources */,
 				CECAE8782A6996870072EF80 /* SignInViewModel.swift in Sources */,
-				CE48FB6C2A6FF175005AECF4 /* FirebaseAuthMediator.swift in Sources */,
+				CE48FB6C2A6FF175005AECF4 /* NetworkAuthMediator.swift in Sources */,
+				CEE300BF2A801A52000E6866 /* ApiService.swift in Sources */,
 				CE50400D2A79122900E27D77 /* TabViewController.swift in Sources */,
 				CE5040082A78FF8100E27D77 /* ReviewsController.swift in Sources */,
 				CE388ECE2A71503A00EE56B3 /* MovieItem.swift in Sources */,
-				CE0515942A71434400680219 /* OriginalLanguage.swift in Sources */,
 				CE5E24232A7453FF00FB8972 /* NetworkMediator.swift in Sources */,
 				CE48FB6E2A6FF1B8005AECF4 /* AuthenticationMediator.swift in Sources */,
 				CE6028D02A6593420061E008 /* SignUpViewModel.swift in Sources */,
+				CEEFAE782A7BC727004E404E /* Review.swift in Sources */,
 				CE68E97C2A64127C00811F24 /* SignUpViewController.swift in Sources */,
 				CECAE8762A6980350072EF80 /* Result.swift in Sources */,
 				CE5E24272A74586300FB8972 /* MovieUseCase.swift in Sources */,
-				CECAE8742A6973050072EF80 /* SignUpRepositoryImpl.swift in Sources */,
 				CE5E241A2A744E7500FB8972 /* MovieDetailController.swift in Sources */,
 				CECAE87A2A6996E80072EF80 /* SignInUseCase.swift in Sources */,
 				CE5E242F2A75776000FB8972 /* MovieDetailRepository.swift in Sources */,
 				CE5040192A7B0C0000E27D77 /* CircularProgressBar.swift in Sources */,
 				CE5E24392A75849A00FB8972 /* CastItem.swift in Sources */,
 				CE0515922A71432000680219 /* Movie.swift in Sources */,
+				CEE300B62A7FF6EB000E6866 /* LoginResponse.swift in Sources */,
 				CEF39C202A77E6BF00F91A72 /* DetailMovie.swift in Sources */,
 				CE5E24292A75741F00FB8972 /* MovieDetailViewModel.swift in Sources */,
 				CE6028D22A6593610061E008 /* ValidationResult.swift in Sources */,
@@ -619,10 +649,12 @@
 				CE68E94D2A64096000811F24 /* SceneDelegate.swift in Sources */,
 				CE68E9802A658ABE00811F24 /* CustomTextField.swift in Sources */,
 				CE5E24212A74536F00FB8972 /* MovieRepositoryImpl.swift in Sources */,
-				CECAE8702A6969B90072EF80 /* SignUpUseCase.swift in Sources */,
+				CEEFAE742A7BB52A004E404E /* ReviewItem.swift in Sources */,
 				CECAE87C2A69974B0072EF80 /* SignInRepository.swift in Sources */,
 				CE5E241C2A74528B00FB8972 /* MovieRepository.swift in Sources */,
 				CECAE8832A6997E80072EF80 /* SignInRepositoryImpl.swift in Sources */,
+				CEEFAE7A2A7BC770004E404E /* ReviewResult.swift in Sources */,
+				CEE300B42A7FF6DC000E6866 /* AuthTokenResponse.swift in Sources */,
 				CE5040052A78FF0500E27D77 /* InfoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

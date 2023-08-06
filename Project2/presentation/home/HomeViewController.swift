@@ -25,6 +25,15 @@ class HomeViewController:UIViewController{
         return moviesLabel
     }()
     
+    private let logoutLabel: UILabel = {
+        let moviesLabel = UILabel()
+        moviesLabel.text = "Log out"
+        moviesLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        moviesLabel.translatesAutoresizingMaskIntoConstraints = false
+        moviesLabel.textColor = .black
+        return moviesLabel
+    }()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,11 +45,33 @@ class HomeViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tabBarItem.image = UIImage(named: "home-icon")
         addViews()
         setupUI()
         getMovies()
         setupTableView()
+        setClickListeners()
+    }
+    
+    private func setClickListeners() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(logoutLabelTapped))
+        logoutLabel.isUserInteractionEnabled = true
+        logoutLabel.addGestureRecognizer(tapGesture)
+    }
+
+    @objc private func logoutLabelTapped() {
+        print("tapped label")
+        viewModel.logout(){
+            success in
+            if success {
+                UserDefaults.standard.removeObject(forKey: "sessionId")
+                UserDefaults.standard.synchronize()
+                let newViewController = ViewController()
+                let navigationController = UINavigationController(rootViewController: newViewController)
+                UIApplication.shared.windows.first?.rootViewController = navigationController
+            } else {
+                print("log out failed")
+            }
+        }
     }
     
     private func setupTableView(){
@@ -65,6 +96,7 @@ class HomeViewController:UIViewController{
     private func addViews(){
         self.view.addSubview(tableView)
         self.view.addSubview(moviesLabel)
+        self.view.addSubview(logoutLabel)
     }
     
     private func setupUI(){
@@ -75,7 +107,10 @@ class HomeViewController:UIViewController{
             tableView.topAnchor.constraint(equalTo: moviesLabel.bottomAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            
+            logoutLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+            logoutLabel.topAnchor.constraint(equalTo: moviesLabel.topAnchor)
         ])
         
         self.view.backgroundColor = .white
