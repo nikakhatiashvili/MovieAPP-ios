@@ -248,9 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				CEE300B22A7FF6C8000E6866 /* model */,
-				CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */,
-				CE48FB6B2A6FF175005AECF4 /* NetworkAuthMediator.swift */,
 				CECAE8822A6997E80072EF80 /* SignInRepositoryImpl.swift */,
+				CE48FB6D2A6FF1B8005AECF4 /* AuthenticationMediator.swift */,
 			);
 			path = auth;
 			sourceTree = "<group>";
@@ -258,7 +257,6 @@
 		CE5E241F2A74536000FB8972 /* movies */ = {
 			isa = PBXGroup;
 			children = (
-				CEE300BA2A7FF85D000E6866 /* APIURLBuilder.swift */,
 				CE5E24242A7454C500FB8972 /* MovieMediator.swift */,
 				CE5E24202A74536F00FB8972 /* MovieRepositoryImpl.swift */,
 				CE5E24222A7453FF00FB8972 /* NetworkMediator.swift */,
@@ -416,6 +414,7 @@
 		CECAE86C2A6947470072EF80 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				CEE300C12A801AA8000E6866 /* api */,
 				CE5E24302A75781300FB8972 /* detail */,
 				CE5E241F2A74536000FB8972 /* movies */,
 				CE5E241E2A74535800FB8972 /* auth */,
@@ -448,6 +447,15 @@
 				CEE300B72A7FF700000E6866 /* SessionResponse.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		CEE300C12A801AA8000E6866 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				CEE300BA2A7FF85D000E6866 /* APIURLBuilder.swift */,
+				CE48FB6B2A6FF175005AECF4 /* NetworkAuthMediator.swift */,
+			);
+			path = api;
 			sourceTree = "<group>";
 		};
 		CEEFAE7B2A7D23F9004E404E /* favorites */ = {
