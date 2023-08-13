@@ -130,5 +130,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let movieDetailVC = MovieDetailController()
         movieDetailVC.movie = movies[indexPath.row]
         navigationController?.pushViewController(movieDetailVC, animated: true)
+
     }
 }

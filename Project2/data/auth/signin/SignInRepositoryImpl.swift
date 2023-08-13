@@ -25,17 +25,14 @@ class SignInRepositoryImpl: SignInRepository {
                                 self.saveSessionId(sessionId: sessionResponse.sessionId)
                                 completion(.success(sessionResponse.sessionId))
                             case .failure(let error):
-                                print("Error creating session with login: \(error)")
                                 completion(.failure(error))
                             }
                         }
                     case .failure(let error):
-                        print("Error validating token with login: \(error)")
                         completion(.failure(error))
                     }
                 }
             case .failure(let error):
-                print("Error fetching authentication token: \(error)")
                 completion(.failure(error))
             }
         }

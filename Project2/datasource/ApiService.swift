@@ -38,20 +38,10 @@ class APIService {
     }
     
     func requestData<T: Decodable>(url: String, method: HTTPMethod, parameters: Parameters?, completion: @escaping (Result<T, Error>) -> Void) {
-        AF.request(url, method: method, parameters: parameters).responseData { response in
+        AF.request(url, method: method, parameters: parameters).responseDecodable(of: T.self) { response in
             switch response.result {
-            case .success(let data):
-                guard 200..<300 ~= response.response!.statusCode else {
-                    completion(.failure(response.error ?? AFError.responseValidationFailed(reason: .dataFileNil)))
-                    return
-                }
-                do {
-                    let decoder = JSONDecoder()
-                    let object = try decoder.decode(T.self, from: data)
-                    completion(.success(object))
-                } catch {
-                    completion(.failure(AFError.responseSerializationFailed(reason: .decodingFailed(error: error))))
-                }
+            case .success(let object):
+                completion(.success(object))
             case .failure(let error):
                 completion(.failure(error))
             }

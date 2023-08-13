@@ -58,8 +58,7 @@ class CastItem: UICollectionViewCell {
             posterImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             posterImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             posterImageView.heightAnchor.constraint(equalToConstant: 120),
-            posterImageView.widthAnchor.constraint(equalToConstant: 800),
-            
+
             originalName.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant:10),
             originalName.leftAnchor.constraint(equalTo: posterImageView.leftAnchor),
             originalName.rightAnchor.constraint(equalTo: posterImageView.rightAnchor),

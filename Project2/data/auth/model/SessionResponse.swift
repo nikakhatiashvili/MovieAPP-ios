@@ -9,7 +9,7 @@ import Foundation
 
 struct SessionResponse: Decodable {
     let success: Bool
-    let sessionId:String
+    let sessionId: String
     
     enum CodingKeys: String, CodingKey {
         case sessionId = "session_id"

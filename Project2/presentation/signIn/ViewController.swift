@@ -136,9 +136,26 @@ class ViewController: UIViewController {
     }
     
     private func navigateToHome(){
-        let newScreenVC = HomeViewController()
-        let navigationController = UINavigationController(rootViewController: newScreenVC)
-        UIApplication.shared.windows.first?.rootViewController = navigationController
+        
+        let tabBarController = UITabBarController()
+        let homeVC = HomeViewController()
+        let favoritesVC = FavoritesViewController()
+        
+     
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home-icon"), tag: 0)
+        
+    
+        favoritesVC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(named: "search-png"), tag: 1)
+        
+        let homeNavController = UINavigationController(rootViewController: homeVC)
+        let favoritesNavController = UINavigationController(rootViewController: favoritesVC)
+        
+        tabBarController.viewControllers = [homeNavController, favoritesNavController]
+        
+        // Set the tab bar controller as the new root view controller
+        UIApplication.shared.windows.first?.rootViewController = tabBarController
+        
+        
     }
     
     deinit {
